@@ -1,3 +1,4 @@
 $(document).ready(function () {
-    console.log('cardialOridinalNumber Original:', cardialOridinalNumber);
+    console.log('cardialNumber:', cardialNumber);
+    console.log('oridinalNumber:', oridinalNumber);
 });

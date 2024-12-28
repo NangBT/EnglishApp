@@ -1,26 +1,132 @@
-var cardialOridinalNumber = [
+var cardialNumber = [
     {
         number: 1,
-        cardialNumber: "one",
-        oridinalNumber: "first",
-        isChecked: false
-    },
-    {
+        cardial: "One"
+    }, {
         number: 2,
-        cardialNumber: "two",
-        oridinalNumber: "second",
-        isChecked: false
-    },
-    {
+        cardial: "Two"
+    }, {
         number: 3,
-        cardialNumber: "three",
-        oridinalNumber: "third",
-        isChecked: false
-    },
-    {
+        cardial: "Three"
+    }, {
         number: 4,
-        cardialNumber: "four",
-        oridinalNumber: "fourth",
-        isChecked: false
+        cardial: "Four"
+    }, {
+        number: 5,
+        cardial: "Five"
+    }, {
+        number: 6,
+        cardial: "Six"
+    }, {
+        number: 7,
+        cardial: "Seven"
+    }, {
+        number: 8,
+        cardial: "Eight"
+    }, {
+        number: 9,
+        cardial: "Nine"
+    }, {
+        number: 10,
+        cardial: "Ten"
+    }, {
+        number: 11,
+        cardial: "Eleven"
+    }, {
+        number: 12,
+        cardial: "Twelve"
+    }, {
+        number: 13,
+        cardial: "Thirteen"
+    }, {
+        number: 14,
+        cardial: "Fourteen"
+    }, {
+        number: 15,
+        cardial: "Fifteen"
+    }, {
+        number: 16,
+        cardial: "Sixteen"
+    }, {
+        number: 17,
+        cardial: "Seventeen"
+    }, {
+        number: 18,
+        cardial: "Eighteen"
+    }, {
+        number: 19,
+        cardial: "Nineteen"
+    }, {
+        number: 20,
+        cardial: "Twenty"
+    }, {
+        number: 30,
+        cardial: "Thirty"
+    }, {
+        number: 40,
+        cardial: "Forty"
+    }, {
+        number: 50,
+        cardial: "Fifty"
+    }, {
+        number: 60,
+        cardial: "Sixty"
+    }, {
+        number: 70,
+        cardial: "Seventy"
+    }, {
+        number: 80,
+        cardial: "Eighty"
+    }, {
+        number: 90,
+        cardial: "Ninety"
+    }, {
+        number: 100,
+        cardial: "Hundred"
+    }, {
+        number: 1000,
+        cardial: "Thousand"
+    }, {
+        number: 1000000,
+        cardial: "Million"
+    }, {
+        number: 1000000000,
+        cardial: "billion"
     }
 ];
+var oridinalNumber = [
+    {
+        number: 1,
+        oridinal: "First"
+    }, {
+        number: 2,
+        oridinal: "Second"
+    }, {
+        number: 3,
+        oridinal: "Third"
+    }, {//
+        number: 4,
+        oridinal: "Fourth"
+    }, {
+        number: 5,
+        oridinal: "Fifth"
+    }, {
+        number: 6,
+        oridinal: "Sixth"
+    }, {
+        number: 7,
+        oridinal: "Seventh"
+    }, {
+        number: 8,
+        oridinal: "Eighth"
+    }, {
+        number: 9,
+        oridinal: "Ninth"
+    }, {
+        number: 10,
+        oridinal: "Tenth"
+    }, {
+        number: 12,
+        oridinal: "Twelfth"
+    }
+]
