@@ -1,0 +1,38 @@
+table th {
+    text-align: center;
+    font-weight: bold;
+}
+
+table tr,
+table th,
+table td {
+    border: 1px solid black;
+}
+table th{
+    background-color: rgb(247, 227, 113)
+}
+table th,
+table td {
+    padding: 5px;
+}
+.containner{
+    width:50%;
+    margin: 0px auto;
+    text-align: center;
+}
+#randomNumberTbl{
+    margin-top:50px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+.btn{
+    text-align: center;
+    margin: 0px auto;
+}
+.numberCol{
+    text-align: right;
+}
+.txt{
+    width: 90%;
+  padding: 5px;
+}
