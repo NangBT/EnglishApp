@@ -11,7 +11,7 @@ table th{
 table th, table td {
     padding: 5px;
 }
-.containner{
+.container{
     width:50%;
     margin: 0px auto;
     text-align: center;
@@ -38,4 +38,7 @@ table th, table td {
 }
 .rowSuccess{
     background-color:#7fce67;
+}
+.hide{
+    display:none;
 }
