@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 <html>
 
 <head>
@@ -11,7 +11,7 @@
     <title>- - - English App (Author: Rice Bee)- - -</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../styles/cardialOridinalNumber.css">
+    <link rel="stylesheet" href="../styles/cardinalOrdinalNumber.css">
 
 </head>
 
@@ -20,12 +20,17 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="../../Models/cardialOridinalNumber.js"></script>
-    <script src="../../Controllers/cardialOridinalNumberController.js" async defer></script>
+
+    <script src="../../Models/cardinalOrdinalNumber.js"></script>
+    <script src="../../Business/Utilities/utilities.js"></script>
+    <script src="../../Business/Respositories/cardinalOrdinalNumberRespository.js"></script>
+    <script src="../../Business/Services/cardinalOrdinalNumberService.js"></script>
+    <script src="../../Business/Controllers/cardinalOrdinalNumberController.js"></script>
 
     <div class="body">
         <div class="containner">
             <button class="btn" id="randomNumberBtn" title="Random Number">Random Number</button>
+            <button class="btn" id="checkResultBtn" title="Check Result">Check Result</button>
             <table id="randomNumberTbl">
                 <tr>
                     <th>Number</th>
@@ -35,15 +40,16 @@
                 </tr>
                 <tr>
                     <td class="numberCol">
-                        <label id="numberLbl_1">12</label>
+                        <!-- <label id="numberLbl_1">12</label> -->
+                        <input class="txt" id="numberTxt_1">
                     </td>
-                    <td>
+                    <td class="cardinalNumberCol">
                         <input class="txt" id="cardinalNumberTxt_1">
                     </td>
-                    <td>
+                    <td class="ordinalNumberCol">
                         <input class="txt" id="ordinalNumberTxt_1">
                     </td>
-                    <td>
+                    <td class="acronymCol">
                         <input class="txt" id="acronymTxt_1">
                     </td>
                 </tr>
@@ -51,13 +57,13 @@
                     <td class="numberCol">
                         <label id="numberLbl_2"></label>
                     </td>
-                    <td>
+                    <td class="cardinalNumberCol">
                         <input class="txt" id="cardinalNumberTxt_2">
                     </td>
-                    <td>
+                    <td class="ordinalNumberCol">
                         <input class="txt" id="ordinalNumberTxt_2">
                     </td>
-                    <td>
+                    <td class="acronymCol">
                         <input class="txt" id="acronymTxt_2">
                     </td>
                 </tr>
@@ -65,18 +71,123 @@
                     <td class="numberCol">
                         <label id="numberLbl_3"></label>
                     </td>
-                    <td>
+                    <td class="cardinalNumberCol">
                         <input class="txt" id="cardinalNumberTxt_3">
                     </td>
-                    <td>
+                    <td class="ordinalNumberCol">
                         <input class="txt" id="ordinalNumberTxt_3">
                     </td>
-                    <td>
+                    <td class="acronymCol">
                         <input class="txt" id="acronymTxt_3">
                     </td>
                 </tr>
+
+                <tr>
+                    <td class="numberCol">
+                        <label id="numberLbl_4"></label>
+                    </td>
+                    <td class="cardinalNumberCol">
+                        <input class="txt" id="cardinalNumberTxt_4">
+                    </td>
+                    <td class="ordinalNumberCol">
+                        <input class="txt" id="ordinalNumberTxt_4">
+                    </td>
+                    <td class="acronymCol">
+                        <input class="txt" id="acronymTxt_4">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="numberCol">
+                        <label id="numberLbl_5"></label>
+                    </td>
+                    <td class="cardinalNumberCol">
+                        <input class="txt" id="cardinalNumberTxt_5">
+                    </td>
+                    <td class="ordinalNumberCol">
+                        <input class="txt" id="ordinalNumberTxt_5">
+                    </td>
+                    <td class="acronymCol">
+                        <input class="txt" id="acronymTxt_5">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="numberCol">
+                        <label id="numberLbl_6"></label>
+                    </td>
+                    <td class="cardinalNumberCol">
+                        <input class="txt" id="cardinalNumberTxt_6">
+                    </td>
+                    <td class="ordinalNumberCol">
+                        <input class="txt" id="ordinalNumberTxt_6">
+                    </td>
+                    <td class="acronymCol">
+                        <input class="txt" id="acronymTxt_6">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="numberCol">
+                        <label id="numberLbl_7"></label>
+                    </td>
+                    <td class="cardinalNumberCol">
+                        <input class="txt" id="cardinalNumberTxt_7">
+                    </td>
+                    <td class="ordinalNumberCol">
+                        <input class="txt" id="ordinalNumberTxt_7">
+                    </td>
+                    <td class="acronymCol">
+                        <input class="txt" id="acronymTxt_7">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="numberCol">
+                        <label id="numberLbl_8"></label>
+                    </td>
+                    <td class="cardinalNumberCol">
+                        <input class="txt" id="cardinalNumberTxt_8">
+                    </td>
+                    <td class="ordinalNumberCol">
+                        <input class="txt" id="ordinalNumberTxt_8">
+                    </td>
+                    <td class="acronymCol">
+                        <input class="txt" id="acronymTxt_8">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="numberCol">
+                        <label id="numberLbl_9"></label>
+                    </td>
+                    <td class="cardinalNumberCol">
+                        <input class="txt" id="cardinalNumberTxt_9">
+                    </td>
+                    <td class="ordinalNumberCol">
+                        <input class="txt" id="ordinalNumberTxt_9">
+                    </td>
+                    <td class="acronymCol">
+                        <input class="txt" id="acronymTxt_10">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="numberCol">
+                        <label id="numberLbl_10"></label>
+                    </td>
+                    <td class="cardinalNumberCol">
+                        <input class="txt" id="cardinalNumberTxt_10">
+                    </td>
+                    <td class="ordinalNumberCol">
+                        <input class="txt" id="ordinalNumberTxt_10">
+                    </td>
+                    <td class="acronymCol">
+                        <input class="txt" id="acronymTxt_10">
+                    </td>
+                </tr>
             </table>
-            <button class="btn" id="checkResultBtn" title="Check Result">Check Result</button>
+            <!-- <button class="btn" id="checkResultBtn" title="Check Result">Check Result</button> -->
         </div>
     </div>
 </body>
