@@ -2,64 +2,85 @@ function bindingData() {
     var rows = getRows();
     var lengthOfRows = getLengthOfRows(rows);
     for (var i = 1; i < lengthOfRows; i++) {
-        // var lbl = rows.eq(i).find('label');
-        // lbl.html(formatNumber(randomNumber()));
+        var row = rows.eq(i);
 
-        var txt = rows.eq(i).find('td.numberCol .txt');
-        txt.val(formatNumber(randomNumber()));
+        var lbl = row.find('td.numberCol .lbl');
+        lbl.html(formatNumber(randomNumber()));
+
+        resetRow(row);
     }
 }
 
-function checkCardinalNumber() {
+function resetRow(row) {
+    var txt = row.find('td.cardinalNumberCol .txt');
+    txt.val('');
 
+    var lblError = row.find('td.cardinalNumberCol .lblError');
+    lblError.addClass('hide');
+    lblError.html('');
+
+    row.removeClass('rowSuccess');
+    row.removeClass('rowError');
+}
+
+function checkCardinalNumber() {
     var rows = getRows();
     var lengthOfRows = getLengthOfRows(rows);
-
     for (var i = 1; i < lengthOfRows; i++) {
+        var row = rows.eq(i);
+        var lblNumber = row.find('td.numberCol .lbl');
+        var td = row.find('td.cardinalNumberCol');
+        var txt = td.find('.txt');
 
-        var lbl = rows.eq(i).find('td.numberCol .txt');
-        var txt = rows.eq(i).find('.txt');
-        rows.eq(i).removeClass('rowSuccess');
-        rows.eq(i).removeClass('rowError');
+        var lblError = td.find('.lblError');
+        lblError.addClass('hide');
+
+        row.removeClass('rowSuccess');
+        row.removeClass('rowError');
+
         if (txt.val().length > 0) {
-            // console.log('Result: ', convertNumberToCardinal(parseInt(lbl.html())));
-            console.log('Result: ', convertNumberToCardinal(parseInt(lbl.val())));
-            //rows.eq(i).addClass('rowSuccess');
+            var cardinalText = convertNumberToCardinalText(parseInt(lblNumber.html()));
+            if (cardinalText.trim().toLowerCase() === txt.val().toLowerCase()) {
+                row.addClass('rowSuccess');
+            }
+            else {
+                lblError.html(cardinalText);
+                lblError.removeClass('hide');
+                row.addClass('rowError');
+            }
         } else {
-            rows.eq(i).addClass('rowError');
+            row.addClass('rowError');
         }
     }
 }
 var positions = [0, 1000, 1000000, 1000000000];
 
-function convertNumberToCardinal(number) {
+function convertNumberToCardinalText(number) {
     var threeNumber = 3;
-    var partial = number.toString().length / threeNumber;
+    var numberText = number.toString();
+    var lengthOfNumber = numberText.length;
+    var partial = lengthOfNumber / threeNumber;
     if (partial <= 1) {
         return convertThreeDigitsLastToText(number);
     } else {
-        var lamRound = Math.ceil(partial);
+        var partialRound = Math.ceil(partial);
         var results = "";
-        var partSoDu = number.toString().length % threeNumber;
+        var partSoDu = lengthOfNumber % threeNumber;
         if (partSoDu == 0) {
             partSoDu = threeNumber;
         }
-        var lengthOfChuoiTruocDo = 0;
-        for (i = 0; i < lamRound; i++) {
-            var startIndex = lengthOfChuoiTruocDo;
-            var endIndex = (number.toString().length + (startIndex)) - threeNumber;
-
+        var positionEndOfPartBefore = 0;
+        for (i = 0; i < partialRound; i++) {
+            var startIndex = positionEndOfPartBefore;
             var endIndex = (threeNumber * i) + partSoDu;
-            var n = parseInt(number.toString().substring(startIndex, endIndex));
+            var n = parseInt(numberText.substring(startIndex, endIndex));
 
-            lengthOfChuoiTruocDo = endIndex;
+            positionEndOfPartBefore = endIndex;
             var nt = convertThreeDigitsLastToText(n);
             if (nt != "") {
-
                 results += nt.trim() + " ";
-                if (lamRound - (1 + i) > -1) {
-                    results += getCardinalTextByNumber(positions[lamRound - (1 + i)]) + " ";
-
+                if (partialRound - (1 + i) > -1) {
+                    results += getCardinalTextByNumber(positions[partialRound - (1 + i)]) + " ";
                 }
             }
         }
@@ -71,28 +92,29 @@ function convertThreeDigitsLastToText(number) {
     if (number <= 20) {
         return getCardinalTextByNumber(number);
     } else {
-        var lengthOfNumber = number.toString().length;
+        var numberText = number.toString();
+        var lengthOfNumber = numberText.length;
         var result = "";
         for (var j = 0; j < lengthOfNumber; j++) {
-            var firstChar = number.toString().charAt(j);
-
-            var numberText = firstChar;
-            var twoDigitsLast = parseInt(number.toString().substring(lengthOfNumber - 2));
+            var twoDigitsLast = parseInt(numberText.substring(lengthOfNumber - 2));
             if (twoDigitsLast <= 20 && (lengthOfNumber - j <= 2)) {
                 result += getCardinalTextByNumber(twoDigitsLast);
                 return result
             } else {
+                var firstChar = numberText.charAt(j);
+                var numberProcessText = firstChar;
+
                 if (lengthOfNumber - j > 2) {
                     if (parseInt(firstChar) / 1 != 0) {
                         result += getCardinalTextByNumber(parseInt(firstChar)) + " ";
-                        numberText = "1";
+                        numberProcessText = "1";
                     }
                 }
                 for (var i = 0; i < lengthOfNumber - (j + 1); i++) {
-                    numberText += "0";
+                    numberProcessText += "0";
                 }
-                if (parseInt(numberText) / 1 != 0) {
-                    result += getCardinalTextByNumber(parseInt(numberText)) + " ";
+                if (parseInt(numberProcessText) / 1 != 0) {
+                    result += getCardinalTextByNumber(parseInt(numberProcessText)) + " ";
                 }
             }
         }
