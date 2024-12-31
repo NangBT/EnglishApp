@@ -34,11 +34,11 @@ var positions = [0, 1000, 1000000, 1000000000];
 
 function convertNumberToCardinal(number) {
     var threeNumber = 3;
-    var parts = number.toString().length / threeNumber;
-    if (parts <= 1) {
+    var partial = number.toString().length / threeNumber;
+    if (partial <= 1) {
         return convertThreeDigitsLastToText(number);
     } else {
-        var lamRound = Math.ceil(parts);
+        var lamRound = Math.ceil(partial);
         var results = "";
         var partSoDu = number.toString().length % threeNumber;
         if (partSoDu == 0) {
