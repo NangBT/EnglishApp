@@ -2,20 +2,16 @@ table th {
     text-align: center;
     font-weight: bold;
 }
-
-table tr,
-table th,
-table td {
+table tr, table th, table td {
     border: 1px solid black;
 }
 table th{
-    background-color: rgb(247, 227, 113)
+    background-color: rgb(247, 227, 113) 
 }
-table th,
-table td {
+table th, table td {
     padding: 5px;
 }
-.containner{
+.container{
     width:50%;
     margin: 0px auto;
     text-align: center;
@@ -31,8 +27,18 @@ table td {
 }
 .numberCol{
     text-align: right;
+    font-weight:bold;
 }
 .txt{
     width: 90%;
-  padding: 5px;
+    padding: 5px;
+}
+.rowError{
+    background-color:#ff8989;
+}
+.rowSuccess{
+    background-color:#7fce67;
+}
+.hide{
+    display:none;
 }
