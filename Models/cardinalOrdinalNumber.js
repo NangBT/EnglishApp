@@ -164,6 +164,9 @@ var ordinalNumberTbl = [
     {
         "number": 10,
         "ordinal": "Tenth"
+    }, {
+        "number": 11,
+        "ordinal": "Eleventh"
     },
     {
         "number": 12,
