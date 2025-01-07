@@ -5,6 +5,7 @@ var cardinalOrdinalNumberService = {
         var numberText = number.toString();
         var lengthOfNumber = numberText.length;
         var partial = lengthOfNumber / threeNumber;
+        console.log('partial', partial);
         if (partial > 1) {
             var remainder = lengthOfNumber % threeNumber;
             if (remainder == 0) {
@@ -13,13 +14,14 @@ var cardinalOrdinalNumberService = {
             var results = "";
             var positionEndOfPartBefore = 0;
             var partialRound = Math.ceil(partial);
+            console.log('partialRound', partialRound);
             for (i = 0; i < partialRound; i++) {
                 var startIndex = positionEndOfPartBefore;
                 var endIndex = (threeNumber * i) + remainder;
                 var threeDigits = parseInt(numberText.substring(startIndex, endIndex));
 
                 positionEndOfPartBefore = endIndex;
-                var threeDigitsText = cardinalOrdinalNumberRepository.getTextByNumber(threeDigits, type);
+                var threeDigitsText = cardinalOrdinalNumberService.convertThreeDigitsLastToText(threeDigits, type);
                 if (threeDigitsText != "") {
                     results += threeDigitsText.trim() + " ";
                     if (partialRound - (1 + i) > -1) {
@@ -61,6 +63,14 @@ var cardinalOrdinalNumberService = {
                     for (var i = 0; i < lengthOfNumber - (j + 1); i++) {
                         numberProcessText += "0";
                     }
+                    // console.log('numberProcessText: ', numberProcessText);
+                    // console.log('pow: ', parseInt(firstChar) * Math.pow(10, lengthOfNumber - (j + 1)));
+
+                    // if (i < lengthOfNumber - (j + 1)) {
+                    //     var powText = (parseInt(numberProcessText) * Math.pow(10, (lengthOfNumber - (j + 1) - 1))).toString();
+                    //     console.log('powText: ', powText);
+                    // }
+
                     if (parseInt(numberProcessText) / 1 != 0) {
                         result += cardinalOrdinalNumberRepository.getTextByNumber(parseInt(numberProcessText), type) + " ";
                     }
@@ -69,13 +79,6 @@ var cardinalOrdinalNumberService = {
             return result.trim();
         }
     }
-    // ,checkOrdinalNumber: function checkOrdinalNumber() {
-    //     console.log('checkOrdinalNumber running...');
-    // },
-
-    // checkAcronym: function checkAcronym() {
-    //     console.log('checkAcronym running...');
-    // }
 };
 
 
