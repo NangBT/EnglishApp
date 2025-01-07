@@ -16,9 +16,12 @@ function bindingData() {
     for (var i = 1; i < lengthOfRows; i++) {
         var row = rows.eq(i);
 
+        var num = utilities.randomNumber();
         var lbl = row.find('td.numberCol .lbl');
-        lbl.html(utilities.formatNumber(utilities.randomNumber()));
+        lbl.html(utilities.formatNumber(num));
 
+        var hdf = row.find('td.numberCol .hdf');
+        hdf.val(num);
         // var txt = row.find('td.numberCol .txt');
         // txt.val(utilities.formatNumber(utilities.randomNumber()));
         resetRow(row);
@@ -59,8 +62,11 @@ function validationNumber() {
     var lengthOfRows = getLengthOfRows(rows);
     for (var i = 1; i < lengthOfRows; i++) {
         var row = rows.eq(i);
-        var numberValue = row.find('td.numberCol .lbl').html();
+        // var numberValue = row.find('td.numberCol .lbl').html();
         //var numberValue = row.find('td.numberCol .txt').val();
+
+        var hdf = row.find('td.numberCol .hdf');
+        var numberValue = hdf.val();
 
         row.removeClass('rowSuccess');
         row.removeClass('rowError');
@@ -86,7 +92,7 @@ function isValidCell(numberValue, row, classCell, type) {
     lblError.addClass('hide');
 
     if (txt.val().length > 0) {
-
+        console.log('parseInt(numberValue): ', parseInt(numberValue));
         var numberText = cardinalOrdinalNumberService.convertNumberToText(parseInt(numberValue), type);
         if (classCell === 'acronymCol') {
             if (numberText !== '') {
