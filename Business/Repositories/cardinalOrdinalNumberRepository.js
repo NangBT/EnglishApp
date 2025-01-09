@@ -1,41 +1,29 @@
 var cardinalOrdinalNumberRepository = {
-    getCardinalTextByNumber: function getCardinalTextByNumber(number) {
-        var info = cardinalNumberTbl.find(x => x.number === number);
-        if (info != null && info != undefined) {
-            return info.cardinal;
-        }
-        return '';
-    },
+  getCardinalTextByNumber: function getCardinalTextByNumber(number) {
+    var info = cardinalNumberTbl.find((x) => x.number === number);
+    return (info != null && info != undefined) ? info.cardinal : "";
+  },
+  getOrdinalTextByNumber: function getOrdinalTextByNumber(number) {
+    var info = ordinalNumberTbl.find((x) => x.number === number);
+    return (info != null && info != undefined) ? info.ordinal : "";
+  },
+  formatOrdinalText: function formatOrdinalText(twoCharacterLast) {
+    var numberText = '';
+    if (twoCharacterLast === 0) { return "th"; }
+    else if (twoCharacterLast < 13) { // 1 => 12
+      numberText = cardinalOrdinalNumberRepository.getOrdinalTextByNumber(twoCharacterLast);
+    } else if (13 <= twoCharacterLast && twoCharacterLast < 20) {// 13 => 19
+      numberText = cardinalOrdinalNumberRepository.getCardinalTextByNumber(twoCharacterLast) + "th";
 
-    getOrdinalTextByNumber: function getOrdinalTextByNumber(number) {
-        var info = ordinalNumberTbl.find(x => x.number === number);
-        if (info != null && info != undefined) {
-            return info.ordinal;
-        }
-        else {
-            var cardinalText = cardinalOrdinalNumberRepository.getCardinalTextByNumber(number);
-            return cardinalText;
-        }
-    },
-    formatOrdinalText: function formatOrdinalText(numberValue, numberText) {
-        if (numberText !== '') {
-            var twoCharacterLast = parseInt(numberValue.toString().substring(numberValue.toString().length - 2, numberValue.toString().length));
-            if (13 <= twoCharacterLast && twoCharacterLast < 20) { // 13 => 19
-                return numberText + 'th';
-            }
-            else if (twoCharacterLast > 10 && numberValue % 10 === 0) { // 20, 30, 40, 50, 60, 70, 80, 90
-                return numberText = numberText.substring(0, numberText.length - 1) + 'ieth';
-            }
-        }
-        return numberText;
-    },
-    getTextByNumber: function getTextByNumber(number, type) {
-        if (type == cardinalOrdinalNumberConstant.type.cardinal) {
-            return cardinalOrdinalNumberRepository.getCardinalTextByNumber(number);
-        }
-        else if (type == cardinalOrdinalNumberConstant.type.ordinal) {
-            return cardinalOrdinalNumberRepository.getOrdinalTextByNumber(number);
-        }
-        return '';
+    } else if (twoCharacterLast % 10 === 0) { // 20, 30, 40, 50, 60, 70, 80, 90
+      var numberText = cardinalOrdinalNumberRepository.getCardinalTextByNumber(twoCharacterLast);
+      numberText = numberText.substring(0, numberText.length - 1) + "ieth";
+    } else {
+      var firstCharacter = twoCharacterLast.toString().substring(0, 1);
+      var dozens = parseInt(firstCharacter + "0");
+      var numberText = cardinalOrdinalNumberRepository.getCardinalTextByNumber(dozens);
+      numberText += " " + cardinalOrdinalNumberRepository.getOrdinalTextByNumber(twoCharacterLast - dozens);
     }
+    return " " + numberText;
+  }
 };
