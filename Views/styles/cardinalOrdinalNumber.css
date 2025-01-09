@@ -34,7 +34,8 @@ table td {
 .numberCol {
   text-align: right;
   font-weight: bold;
-  color: white;
+  color: black;
+  background-color: wheat;
 }
 .txt {
   width: 90%;
@@ -58,4 +59,7 @@ table {
 }
 .hideTableCk {
   color: white;
+}
+.lblError{
+  font-weight:bold;
 }
