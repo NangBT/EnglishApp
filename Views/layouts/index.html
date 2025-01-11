@@ -30,25 +30,25 @@
     <script src="../../business/plugins/jquery-1.9.1.min.js"></script>
     <script src="../../business/plugins/moments/moment.js"></script>
 
-    <script src="../../models/cardinalOrdinalNumber.js"></script>
+    <script src="../../models/numberModel.js"></script>
     <script src="../../business/utilities/utilities.js"></script>
-    <script src="../../business/constants/cardinalOrdinalNumberConstant.js"></script>
-    <script src="../../business/repositories/cardinalOrdinalNumberRepository.js"></script>
-    <script src="../../business/services/cardinalOrdinalNumberService.js"></script>
-    <script src="../../business/controllers/cardinalOrdinalNumberController.js"></script>
+    <script src="../../business/constants/numberConstant.js"></script>
+    <script src="../../business/repositories/numberRepository.js"></script>
+    <script src="../../business/services/numberService.js"></script>
+    <script src="../../business/controllers/numberController.js"></script>
 
     <div class="body">
       <div class="container">
         <div class="actionWrapper">
           <div class="actionLeft">
             <select id="typeSelect">
-              <option value="random_number">Random Number</option>
-              <option value="random_date">Random Date</option>
-              <option value="random_time">Random Time</option>
+              <option value="number">Random Number</option>
+              <option value="date">Random Date</option>
+              <option value="telling_the_time">Random Telling The Time</option>
             </select>
-            <!-- <button class="btn" id="randomBtn" title="Random">
+            <button class="btn" id="randomBtn" title="Random">
               <i class="fa fa-random" aria-hidden="true"></i> Random
-            </button> -->
+            </button>
             <button class="btn" id="completedBtn" title="Completed">
               <i class="fa fa-check" aria-hidden="true"></i> Completed
             </button>
@@ -74,15 +74,15 @@
             </td>
             <td class="secondColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="thirdColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="fourthColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
           </tr>
           <tr>
@@ -92,15 +92,15 @@
             </td>
             <td class="secondColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="thirdColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="fourthColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
           </tr>
           <tr>
@@ -110,34 +110,15 @@
             </td>
             <td class="secondColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="thirdColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="fourthColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="firstColumn">
-              <label class="lbl"></label>
-              <input type="hidden" class="hdf" />
-            </td>
-            <td class="secondColumn">
-              <input class="txt" />
-              <label class="lblError hide"></label>
-            </td>
-            <td class="thirdColumn">
-              <input class="txt" />
-              <label class="lblError hide"></label>
-            </td>
-            <td class="fourthColumn">
-              <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
           </tr>
 
@@ -148,15 +129,15 @@
             </td>
             <td class="secondColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="thirdColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="fourthColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
           </tr>
 
@@ -167,15 +148,15 @@
             </td>
             <td class="secondColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="thirdColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="fourthColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
           </tr>
 
@@ -186,15 +167,15 @@
             </td>
             <td class="secondColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="thirdColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="fourthColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
           </tr>
 
@@ -205,15 +186,15 @@
             </td>
             <td class="secondColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="thirdColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="fourthColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
           </tr>
 
@@ -224,15 +205,15 @@
             </td>
             <td class="secondColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="thirdColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="fourthColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
           </tr>
 
@@ -243,15 +224,34 @@
             </td>
             <td class="secondColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="thirdColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
             </td>
             <td class="fourthColumn">
               <input class="txt" />
-              <label class="lblError hide"></label>
+              <label class="errorLbl hide"></label>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="firstColumn">
+              <label class="lbl"></label>
+              <input type="hidden" class="hdf" />
+            </td>
+            <td class="secondColumn">
+              <input class="txt" />
+              <label class="errorLbl hide"></label>
+            </td>
+            <td class="thirdColumn">
+              <input class="txt" />
+              <label class="errorLbl hide"></label>
+            </td>
+            <td class="fourthColumn">
+              <input class="txt" />
+              <label class="errorLbl hide"></label>
             </td>
           </tr>
         </table>

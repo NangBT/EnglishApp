@@ -1,10 +1,12 @@
 var utilities = {
     random: {
         number: function randomNumber() {
-            // return Math.round(Math.random() * 1000000000);
-            return 666219413;
+            return Math.round(Math.random() * 1000000);
         },
         date: function randomDate() {
+            return new Date(new Date() - Math.random() * (1e+12));
+        },
+        time: function randomTime() {
             return new Date(new Date() - Math.random() * (1e+12));
         }
     },
