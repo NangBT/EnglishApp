@@ -93,29 +93,28 @@ var numberService = {
       else {
         hoursText = numberService.convertThreeDigitsToText(hours);
       }
-      sessionText = " AM";
+      sessionText = "AM";
     }
     else {
       if (hours > 12) {
         hours -= 12;
       }
       hoursText = numberService.convertThreeDigitsToText(hours);
-      sessionText = " PM";
+      sessionText = "PM";
     }
     if (minutes === 0) {
-      hoursText += " O'clock";
+      hoursText += "O'clock";
     }
     /* #endregion */
 
     /* #region  Minutes */
     var minutesText = "";
     if (minutes < 10) {
-      minutesText = " Oh ";
+      minutesText = "Oh ";
     }
     minutesText += numberService.convertThreeDigitsToText(minutes);
-    minutesText = (minutesText.length > 0) ? " " + minutesText : minutesText;
     /* #endregion */
-    return "It's " + hoursText + minutesText + sessionText;
+    return "It's " + hoursText.trim() + " " + minutesText.trim() + " " + sessionText.trim();
   },
   /* #endregion */
 
@@ -193,15 +192,13 @@ var numberService = {
       minutesText = " Half Past"
     }
     else {
-      minutes = 60 - minutes;
-      if (minutes === 15) {
+      if ((60 - minutes) === 15) {
         minutesText = "Quarter";
       }
       else {
-        minutesText = numberService.convertThreeDigitsToText(minutes);
+        minutesText = numberService.convertThreeDigitsToText(60 - minutes);
       }
       minutesText += " To"
-      hours++;
     }
     minutesText = (minutesText.length > 0) ? minutesText + " " : minutesText;
     /* #endregion */
@@ -209,14 +206,17 @@ var numberService = {
     /* #region  Hours */
     var hoursText = "";
     var sessionText = "";
-    if (hours === 0) {
+    if (hours === 0 && minutes === 0) {
       sessionText = ' Midnight';
     } else if (hours === 12 && minutes === 0) {
       sessionText = ' Noon';
     } else {
-      var amPM = (hours > 12) ? hours - 12 : hours;
+      var amPM = (hours >= 12) ? hours - 12 : hours;
+      if (minutes > 30) {
+        amPM++;
+      }
       hoursText = numberService.convertThreeDigitsToText(amPM);
-      if (1 <= hours && hours <= 11) {
+      if (0 <= hours && hours <= 11) {
         sessionText = " In The Morning";
       }
       else if (12 <= hours && hours <= 17) {
@@ -224,7 +224,7 @@ var numberService = {
       }
       else if (18 <= hours && hours <= 20) {
         sessionText = " In The Evening";
-      } else if (21 < hours || hours <= 5) {
+      } else if (21 <= hours) {
         sessionText = " At Night";
       }
     }

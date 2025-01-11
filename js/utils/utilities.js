@@ -8,6 +8,7 @@ var utilities = {
         },
         time: function randomTime() {
             return new Date(new Date() - Math.random() * (1e+12));
+            //return new Date('2016/06/27 01:37:57');
         }
     },
     format: {
