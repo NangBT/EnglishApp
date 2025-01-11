@@ -58,7 +58,7 @@ table {
 .hideTableCk {
   color: white;
 }
-.lblError {
+.errorLbl {
   font-weight: bold;
   text-align: left;
 }
