@@ -214,15 +214,18 @@ function validationCell(row, cellClass, isValueValid) {
   errorLbl.addClass('hide');
   errorLbl.removeClass('error');
 
-  if (cell.find('.txt').val().trim() === isValueValid) {
-    cell.addClass('successCell');
-    score++;
-  }
-  else {
-    errorLbl.html(isValueValid);
-    errorLbl.removeClass('hide');
-    errorLbl.addClass('error');
-    cell.addClass('errorCell');
+  var content = cell.find('.txt').val().toLowerCase().trim();
+  if (content.length > 0) {
+    if (content === isValueValid.toLowerCase()) {
+      cell.addClass('successCell');
+      score++;
+    }
+    else {
+      errorLbl.html(isValueValid);
+      errorLbl.removeClass('hide');
+      errorLbl.addClass('error');
+      cell.addClass('errorCell');
+    }
   }
   return score;
 }
