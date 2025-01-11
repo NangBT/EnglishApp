@@ -1,0 +1,131 @@
+body {
+  background-image: url("../../assets/images/bg.jpg");
+}
+table th {
+  text-align: center;
+  font-weight: bold;
+}
+table tr,
+table th,
+table td {
+  border: 1px solid white;
+}
+table th {
+  background-color: rgb(247, 227, 113);
+}
+table th,
+table td {
+  padding: 5px;
+}
+.container {
+  margin: 0px auto;
+  text-align: center;
+}
+#randomNumberTbl {
+  margin-bottom: 50px;
+  width: 100%;
+}
+.btn {
+  text-align: center;
+  margin: 0px auto;
+}
+td.firstColumn {
+  text-align: right;
+  font-weight: bold;
+  color: black;
+  background-color: wheat;
+}
+.txt {
+  width: 95%;
+  padding: 5px;
+}
+.errorCell {
+  background-color: #ff8989;
+}
+.successCell {
+  background-color: #7fce67;
+}
+
+input:checked ~ table {
+  opacity: 0;
+  visibility: hidden;
+}
+table {
+  -webkit-transition: 2.5s;
+  -o-transition: 2.5s;
+  transition: 2.5s;
+}
+.hideTableCk {
+  color: white;
+}
+.lblError {
+  font-weight: bold;
+  text-align: left;
+}
+/* .lblError {
+  font-weight: bold;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} */
+.actionWrapper {
+  margin: 10px;
+  padding: 20px;
+}
+#randomBtn,
+#completedBtn {
+  color: white;
+  padding: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  border-width: 0px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+}
+#randomBtn {
+  background-color: #de192d;
+}
+#randomBtn:hover {
+  background-color: #dc3545;
+}
+#completedBtn {
+  background-color: #198754;
+}
+#completedBtn:hover {
+  background-color: #1c9b60;
+}
+#typeSelect {
+  padding: 15px;
+  border-width: 0px;
+  border-radius: 5px;
+  border-style: none;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.actionLeft,
+.actionRight {
+  display: inline-block;
+}
+.actionRight {
+  width: 200px;
+  color: white;
+  border: 1px white solid;
+  padding: 10px;
+}
+#scoreLbl {
+  font-weight: bold;
+  color: white;
+  font-size: 36px;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.error {
+  display: inline-block;
+  width: 95%;
+}
+.hide {
+  display: none;
+}

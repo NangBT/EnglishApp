@@ -4,234 +4,259 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>- - - English App (Author: Rice Bee)- - -</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../styles/cardinalOrdinalNumber.css">
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="../../assets/styles/cardinalOrdinalNumber.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../assets/fonts/font-awesome-4.7.0/css/font-awesome.css"
+    />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <script src="../../business/plugins/jquery-1.9.1.min.js"></script>
+    <script src="../../business/plugins/moments/moment.js"></script>
 
-    <script src="../../Models/cardinalOrdinalNumber.js"></script>
-    <script src="../../Business/Utilities/utilities.js"></script>
-    <script src="../../Business/Constants/cardinalOrdinalNumberConstant.js"></script>
-    <script src="../../Business/Repositories/cardinalOrdinalNumberRepository.js"></script>
-    <script src="../../Business/Services/cardinalOrdinalNumberService.js"></script>
-    <script src="../../Business/Controllers/cardinalOrdinalNumberController.js"></script>
+    <script src="../../models/cardinalOrdinalNumber.js"></script>
+    <script src="../../business/utilities/utilities.js"></script>
+    <script src="../../business/constants/cardinalOrdinalNumberConstant.js"></script>
+    <script src="../../business/repositories/cardinalOrdinalNumberRepository.js"></script>
+    <script src="../../business/services/cardinalOrdinalNumberService.js"></script>
+    <script src="../../business/controllers/cardinalOrdinalNumberController.js"></script>
 
     <div class="body">
-        <div class="container">
-            <button class="btn" id="randomNumberBtn" title="Random Number">Random Number</button>
-            <button class="btn" id="checkResultBtn" title="Check Result">Check Result</button>
-            <input type="checkbox"> <span class="hideTableCk">Hide Table</span>
-            <table id="randomNumberTbl">
-                <tr>
-                    <th>Number</th>
-                    <th>Cardinal Number</th>
-                    <th>Ordinal Number</th>
-                    <th>Acronym</th>
-                </tr>
-                <tr>
-                    <td class="numberCol">
-                        <label class="lbl"></label>
-                        <input type="hidden" class="hdf" />
-                        <!-- <input class="txt" id="numberTxt_1"> -->
-                    </td>
-                    <td class="cardinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="ordinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="acronymCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="numberCol">
-                        <label class="lbl"></label>
-                        <input type="hidden" class="hdf" />
-                    </td>
-                    <td class="cardinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="ordinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="acronymCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="numberCol">
-                        <label class="lbl"></label>
-                        <input type="hidden" class="hdf" />
-                    </td>
-                    <td class="cardinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="ordinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="acronymCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="numberCol">
-                        <label class="lbl"></label>
-                        <input type="hidden" class="hdf" />
-                    </td>
-                    <td class="cardinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="ordinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="acronymCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="numberCol">
-                        <label class="lbl"></label>
-                        <input type="hidden" class="hdf" />
-                    </td>
-                    <td class="cardinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="ordinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="acronymCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="numberCol">
-                        <label class="lbl"></label>
-                        <input type="hidden" class="hdf" />
-                    </td>
-                    <td class="cardinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="ordinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="acronymCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="numberCol">
-                        <label class="lbl"></label>
-                        <input type="hidden" class="hdf" />
-                    </td>
-                    <td class="cardinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="ordinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="acronymCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="numberCol">
-                        <label class="lbl"></label>
-                        <input type="hidden" class="hdf" />
-                    </td>
-                    <td class="cardinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="ordinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="acronymCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="numberCol">
-                        <label class="lbl"></label>
-                        <input type="hidden" class="hdf" />
-                    </td>
-                    <td class="cardinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="ordinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="acronymCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="numberCol">
-                        <label class="lbl"></label>
-                        <input type="hidden" class="hdf" />
-                    </td>
-                    <td class="cardinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="ordinalNumberCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                    <td class="acronymCol">
-                        <input class="txt">
-                        <label class="lblError hide"></label>
-                    </td>
-                </tr>
-            </table>
-            <!-- <button class="btn" id="checkResultBtn" title="Check Result">Check Result</button> -->
+      <div class="container">
+        <div class="actionWrapper">
+          <div class="actionLeft">
+            <select id="typeSelect">
+              <option value="random_number">Random Number</option>
+              <option value="random_date">Random Date</option>
+              <option value="random_time">Random Time</option>
+            </select>
+            <!-- <button class="btn" id="randomBtn" title="Random">
+              <i class="fa fa-random" aria-hidden="true"></i> Random
+            </button> -->
+            <button class="btn" id="completedBtn" title="Completed">
+              <i class="fa fa-check" aria-hidden="true"></i> Completed
+            </button>
+          </div>
+          <div class="actionRight">
+            <span>Score: </span>
+            <label id="scoreLbl">-</label>
+          </div>
+          <!-- <input type="checkbox" /> <span class="hideTableCk">Hide Table</span> -->
         </div>
-    </div>
-</body>
+        <table id="randomNumberTbl">
+          <tr>
+            <th id="firstTh" class="firstColumn">Number</th>
+            <th id="secondTh" class="secondColumn">Cardinal Number</th>
+            <th id="thirdTh" class="thirdColumn">Ordinal Number</th>
+            <th id="fourTh" class="fourthColumn">Acronym</th>
+          </tr>
+          <tr>
+            <td class="firstColumn">
+              <label class="lbl"></label>
+              <input type="hidden" class="hdf" />
+              <!-- <input class="txt" id="numberTxt_1"> -->
+            </td>
+            <td class="secondColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="thirdColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="fourthColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+          </tr>
+          <tr>
+            <td class="firstColumn">
+              <label class="lbl"></label>
+              <input type="hidden" class="hdf" />
+            </td>
+            <td class="secondColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="thirdColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="fourthColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+          </tr>
+          <tr>
+            <td class="firstColumn">
+              <label class="lbl"></label>
+              <input type="hidden" class="hdf" />
+            </td>
+            <td class="secondColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="thirdColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="fourthColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+          </tr>
 
+          <tr>
+            <td class="firstColumn">
+              <label class="lbl"></label>
+              <input type="hidden" class="hdf" />
+            </td>
+            <td class="secondColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="thirdColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="fourthColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="firstColumn">
+              <label class="lbl"></label>
+              <input type="hidden" class="hdf" />
+            </td>
+            <td class="secondColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="thirdColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="fourthColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="firstColumn">
+              <label class="lbl"></label>
+              <input type="hidden" class="hdf" />
+            </td>
+            <td class="secondColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="thirdColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="fourthColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="firstColumn">
+              <label class="lbl"></label>
+              <input type="hidden" class="hdf" />
+            </td>
+            <td class="secondColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="thirdColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="fourthColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="firstColumn">
+              <label class="lbl"></label>
+              <input type="hidden" class="hdf" />
+            </td>
+            <td class="secondColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="thirdColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="fourthColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="firstColumn">
+              <label class="lbl"></label>
+              <input type="hidden" class="hdf" />
+            </td>
+            <td class="secondColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="thirdColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="fourthColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="firstColumn">
+              <label class="lbl"></label>
+              <input type="hidden" class="hdf" />
+            </td>
+            <td class="secondColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="thirdColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+            <td class="fourthColumn">
+              <input class="txt" />
+              <label class="lblError hide"></label>
+            </td>
+          </tr>
+        </table>
+        <!-- <button class="btn" id="checkResultBtn" title="Check Result">Check Result</button> -->
+      </div>
+    </div>
+  </body>
 </html>
