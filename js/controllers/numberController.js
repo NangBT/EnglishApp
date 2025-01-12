@@ -11,13 +11,13 @@ $(document).ready(function () {
 
   $("#completedBtn").click(function () {
     var type = $('#typeSelect').val();
-    if (type === randomType.number) {
+    if (type === RANDOM_CONST.TYPE.NUMBER) {
       validationNumber();
     }
-    else if (type === randomType.date) {
+    else if (type === RANDOM_CONST.TYPE.DATE) {
       validationDate();
     }
-    else if (type === randomType.telling_the_time) {
+    else if (type === RANDOM_CONST.TYPE.TELLING_THE_TIME) {
       validationTellingTheTime();
     }
     $('.actionRight').removeClass('hide');
@@ -28,13 +28,13 @@ $(document).ready(function () {
 /* #region  Random Data By Type: Random Number, Random Date, Random Time*/
 function showItems() {
   var type = $('#typeSelect').val();
-  if (type === randomType.number) {
+  if (type === RANDOM_CONST.TYPE.NUMBER) {
     randomNumber();
   }
-  else if (type === randomType.date) {
+  else if (type === RANDOM_CONST.TYPE.DATE) {
     randomDate();
   }
-  else if (type === randomType.telling_the_time) {
+  else if (type === RANDOM_CONST.TYPE.TELLING_THE_TIME) {
     randomTime();
   }
   $('.actionRight').addClass('hide');
@@ -108,9 +108,9 @@ function randomTime() {
   }
 
   $('#firstTh').html('Time');
-  $('#secondTh').html('Telling The Time (AM/PM)');
-  $('#thirdTh').html('Telling The Time (Simple)');
-  $('#fourthColumn').html('Telling The Time (Full)');
+  $('#secondTh').html('Telling The Time (Read - AM/PM)');
+  $('#thirdTh').html('Telling The Time (Read - In)');
+  $('#fourTh').html('Telling The Time (Write)');
   $('.fourthColumn').show();
 }
 /* #endregion */
@@ -194,9 +194,9 @@ function validationTellingTheTime() {
     var hours = parseInt(moment(content).format('HH'));
     var minutes = parseInt(moment(content).format('mm'));
 
-    scores += validationCell(row, "secondColumn", numberService.convertTimeToTellingTimeAmPm(hours, minutes));
-    scores += validationCell(row, "thirdColumn", numberService.convertTimeToTellingTimeSimple(hours, minutes));
-    scores += validationCell(row, "fourthColumn", numberService.convertTimeToTellingTimeForWrite(hours, minutes));
+    scores += validationCell(row, "secondColumn", timeService.getTellingTimeForRead(hours, minutes, TIMING_CONST.SESSION_TYPE.AM_PM));
+    scores += validationCell(row, "thirdColumn", timeService.getTellingTimeForRead(hours, minutes, TIMING_CONST.SESSION_TYPE.IN));
+    scores += validationCell(row, "fourthColumn", timeService.getTellingTimeForWrite(hours, minutes, TIMING_CONST.SESSION_TYPE.IN));
 
   }
   $('#scoreLbl').html(scores + "/30");
