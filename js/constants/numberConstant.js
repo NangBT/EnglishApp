@@ -8,6 +8,11 @@ const RANDOM_CONST = {
     TYPE: {
         NUMBER: "number",
         DATE: "date",
-        TELLING_THE_TIME: "telling_the_time"
+        TELLING_THE_TIME: "telling_the_time",
+        COUNTRY_VOCABULARY: "vocabulary_country",
+        COUNTRY_QUESTION: "question_country",
+        NATIONALITY: "nationality",
+        ANIMAL: "animal",
+        FRUIT: "fruit"
     }
 }

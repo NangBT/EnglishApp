@@ -10,17 +10,7 @@ $(document).ready(function () {
   });
 
   $("#completedBtn").click(function () {
-    var type = $('#typeSelect').val();
-    if (type === RANDOM_CONST.TYPE.NUMBER) {
-      validationNumber();
-    }
-    else if (type === RANDOM_CONST.TYPE.DATE) {
-      validationDate();
-    }
-    else if (type === RANDOM_CONST.TYPE.TELLING_THE_TIME) {
-      validationTellingTheTime();
-    }
-    $('.actionRight').removeClass('hide');
+    validation();
   });
 });
 /* #endregion */
@@ -29,220 +19,40 @@ $(document).ready(function () {
 function showItems() {
   var type = $('#typeSelect').val();
   if (type === RANDOM_CONST.TYPE.NUMBER) {
-    randomNumber();
+    numberModule.random();
   }
   else if (type === RANDOM_CONST.TYPE.DATE) {
-    randomDate();
+    dateModule.random();
   }
   else if (type === RANDOM_CONST.TYPE.TELLING_THE_TIME) {
-    randomTime();
+    timeModule.random();
+  }
+  else if (type === RANDOM_CONST.TYPE.COUNTRY_VOCABULARY) {
+    countryNationalityModule.random.vocabulary();
+  }
+  else if (type === RANDOM_CONST.TYPE.COUNTRY_QUESTION) {
+    countryNationalityModule.random.question();
   }
   $('.actionRight').addClass('hide');
 }
 /* #endregion */
 
-/* #region  Random Number For Cells Label */
-function randomNumber() {
-  $('#firstTh').html('Number');
-  $('#secondTh').html('Cardinal Number');
-  $('#thirdTh').html('Ordinal Number');
-  $('#fourTh').html('Acronym');
-  $('.fourthColumn').show();
-  var rows = getRows();
-  var lengthOfRows = getLengthOfRows(rows);
-
-  for (var i = 1; i < lengthOfRows; i++) {
-    var row = rows.eq(i);
-
-    var randomValue = utilities.random.number();
-    var lbl = row.find("td.firstColumn .lbl");
-    lbl.html(utilities.format.numberToText(randomValue));
-
-    var hdf = row.find("td.firstColumn .hdf");
-    hdf.val(randomValue);
-    resetRow(row);
+function validation() {
+  var type = $('#typeSelect').val();
+  if (type === RANDOM_CONST.TYPE.NUMBER) {
+    numberModule.validation();
   }
-}
-/* #endregion */
-
-/* #region  Random Date For Cells Label */
-function randomDate() {
-  var rows = getRows();
-  var lengthOfRows = getLengthOfRows(rows);
-
-  for (var i = 1; i < lengthOfRows; i++) {
-    var row = rows.eq(i);
-
-    var randomValue = utilities.random.date();
-    var lbl = row.find("td.firstColumn .lbl");
-    lbl.html(moment(randomValue).format('d - DD/MM/YYYY'));
-
-    var hdf = row.find("td.firstColumn .hdf");
-    hdf.val(randomValue);
-    resetRow(row);
+  else if (type === RANDOM_CONST.TYPE.DATE) {
+    timeModule.validation();
   }
-
-  $('#firstTh').html('Date');
-  $('#secondTh').html('Full Date (Write)');
-  $('#thirdTh').html('Full Date (Read)');
-  $('.fourthColumn').hide();
-}
-/* #endregion */
-
-/* #region  Random Time For Cells Label */
-function randomTime() {
-  var rows = getRows();
-  var lengthOfRows = getLengthOfRows(rows);
-
-  for (var i = 1; i < lengthOfRows; i++) {
-    var row = rows.eq(i);
-    var firstColumn = row.find('td.firstColumn');
-    var randomValue = utilities.random.time();
-
-    var lbl = firstColumn.find('.lbl');
-    lbl.html(moment(randomValue).format('HH:mm'));
-    var hdf = firstColumn.find('.hdf');
-    hdf.val(randomValue);
-
-    resetRow(row);
+  else if (type === RANDOM_CONST.TYPE.TELLING_THE_TIME) {
+    timeModule.validation();
   }
-
-  $('#firstTh').html('Time');
-  $('#secondTh').html('Telling The Time (Read - AM/PM)');
-  $('#thirdTh').html('Telling The Time (Read - In)');
-  $('#fourTh').html('Telling The Time (Write)');
-  $('.fourthColumn').show();
-}
-/* #endregion */
-
-/* #region  Reset Value Of Cells in Row */
-function resetRow(row) {
-  resetCell(row, "secondColumn");
-  resetCell(row, "thirdColumn");
-  resetCell(row, "fourthColumn");
-
-  row.removeClass("successCell");
-  row.removeClass("errorCell");
-}
-
-function resetCell(row, cellClass) {
-  var cell = row.find("td." + cellClass);
-  cell.removeClass('successCell');
-  cell.removeClass('errorCell');
-
-  var txt = cell.find(".txt");
-  txt.val("");
-
-  var errorLbl = cell.find(".errorLbl");
-  errorLbl.addClass("hide");
-  errorLbl.html("");
-}
-/* #endregion */
-
-/* #region  Validation Number */
-function validationNumber() {
-  var rows = getRows();
-  var lengthOfRows = getLengthOfRows(rows);
-  var scores = 0;
-  for (var i = 1; i < lengthOfRows; i++) {
-    var row = rows.eq(i);
-    var firstColumn = row.find('td.firstColumn');
-    var content = firstColumn.find('.hdf').val();
-    var numberValue = parseInt(content);
-    scores += validationCell(row, "secondColumn", numberService.convertNumberToText(numberValue).trim());
-
-    var ordinalNumberText = numberService.convertThreeDigitToOrdinalText(numberValue).trim();
-    scores += validationCell(row, "thirdColumn", ordinalNumberText);
-
-    var twoCharacterLast = "";
-    if (ordinalNumberText.length > 2) {
-      twoCharacterLast = ordinalNumberText.substring(ordinalNumberText.length - 2, ordinalNumberText.length);
-    }
-    scores += validationCell(row, "fourthColumn", utilities.format.numberToText(content) + twoCharacterLast);
-    $('#scoreLbl').html(scores + "/30");
+  else if (type === RANDOM_CONST.TYPE.COUNTRY_VOCABULARY) {
+    countryNationalityModule.validation.vocabulary();
   }
-}
-/* #endregion */
-
-/* #region  Validation Date */
-function validationDate() {
-  var rows = getRows();
-  var lengthOfRows = getLengthOfRows(rows);
-  var scores = 0;
-  for (var i = 1; i < lengthOfRows; i++) {
-    var row = rows.eq(i);
-    var firstColumn = row.find('td.firstColumn');
-    var content = firstColumn.find('.hdf').val();
-    var dateValue = moment(content);
-
-    scores += validationCell(row, "secondColumn", utilities.format.dateToText(dateValue).trim());
-    scores += validationCell(row, "thirdColumn", numberService.convertDateToFullDateForRead(dateValue));
+  else if (type === RANDOM_CONST.TYPE.COUNTRY_QUESTION) {
+    countryNationalityModule.validation.question();
   }
-  $('#scoreLbl').html(scores + "/20");
+  $('.actionRight').removeClass('hide');
 }
-/* #endregion */
-
-/* #region  Validation Telling The Time */
-function validationTellingTheTime() {
-  var rows = getRows();
-  var lengthOfRows = getLengthOfRows(rows);
-  var scores = 0;
-  for (var i = 1; i < lengthOfRows; i++) {
-    var row = rows.eq(i);
-    var firstColumn = row.find('td.firstColumn');
-    var content = firstColumn.find('.hdf').val();
-    var hours = parseInt(moment(content).format('HH'));
-    var minutes = parseInt(moment(content).format('mm'));
-
-    scores += validationCell(row, "secondColumn", timeService.getTellingTimeForRead(hours, minutes, TIMING_CONST.SESSION_TYPE.AM_PM));
-    scores += validationCell(row, "thirdColumn", timeService.getTellingTimeForRead(hours, minutes, TIMING_CONST.SESSION_TYPE.IN));
-    scores += validationCell(row, "fourthColumn", timeService.getTellingTimeForWrite(hours, minutes, TIMING_CONST.SESSION_TYPE.IN));
-
-  }
-  $('#scoreLbl').html(scores + "/30");
-}
-/* #endregion */
-
-/* #region  Validation Cell */
-function validationCell(row, cellClass, isValueValid) {
-  var score = 0;
-  var cell = row.find('td.' + cellClass);
-  cell.removeClass('errorCell');
-  cell.removeClass('successCell');
-
-  var errorLbl = cell.find('.errorLbl');
-  errorLbl.addClass('hide');
-  errorLbl.removeClass('error');
-
-  var content = cell.find('.txt').val().toLowerCase().trim();
-  if (content.length > 0) {
-    if (content === isValueValid.toLowerCase()) {
-      cell.addClass('successCell');
-      score++;
-    }
-    else {
-      errorLbl.html(isValueValid);
-      errorLbl.removeClass('hide');
-      errorLbl.addClass('error');
-      cell.addClass('errorCell');
-    }
-  }
-  return score;
-}
-/* #endregion */
-
-/* #region  Get Length Of Rows */
-function getLengthOfRows(rows) {
-  if (rows != null && rows != typeof undefined) {
-    return getRows().length;
-  }
-  return 0;
-  //return 2;
-}
-/* #endregion */
-
-/* #region  Get Rows In Table */
-function getRows() {
-  return $("#randomNumberTbl").find("tr");
-}
-/* #endregion */

@@ -3,12 +3,15 @@ var utilities = {
         number: function randomNumber() {
             return Math.round(Math.random() * 1000000);
         },
+        numberWithRange: function (num) {
+            return Math.floor(Math.random() * num);
+        },
         date: function randomDate() {
             return new Date(new Date() - Math.random() * (1e+12));
         },
         time: function randomTime() {
-            //return new Date(new Date() - Math.random() * (1e+12));
-            return new Date('2021/07/28 18:02:57'); //value="Sun Nov 16 2014 18:02:57 GMT+0700 (Indochina Time)"
+            return new Date(new Date() - Math.random() * (1e+12));
+            //return new Date('2021/07/28 18:02:57'); //value="Sun Nov 16 2014 18:02:57 GMT+0700 (Indochina Time)"
         }
     },
     format: {
