@@ -60,7 +60,6 @@ var timeService = {
             }
             minutesText += " To"
         }
-        //minutesText = (minutesText.length > 0) ? minutesText + " " : minutesText;
         /* #endregion */
 
         /* #region  Hours */
@@ -69,6 +68,7 @@ var timeService = {
         if (minutes > 30) {
             amPM++;
         }
+        amPM = (amPM === 0) ? 12 : amPM;
         hoursText = numberService.convertThreeDigitsToText(amPM);
         /* #endregion */
         return "It's " + minutesText.trim() + " " + hoursText.trim() + " " + timeService.getSession(hours, minutes, sessionType);
