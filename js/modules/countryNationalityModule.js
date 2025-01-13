@@ -1,7 +1,7 @@
 var countryNationalityModule = {
     /* #region  Random Country And Nationality For Cells Label */
     random: {
-        vocabulary: function randomVocabulary() {
+        vocabulary: function vocabulary() {
             var rows = helperModule.getRows();
             var lengthOfRows = helperModule.getLengthOfRows(rows);
 
@@ -25,7 +25,7 @@ var countryNationalityModule = {
         },
         /* #endregion */
         /* #region  Random Question Country And Nationality For Cells Label */
-        question: function randomQuestion() {
+        question: function question() {
             var rows = helperModule.getRows();
             var lengthOfRows = helperModule.getLengthOfRows(rows);
 
@@ -43,14 +43,14 @@ var countryNationalityModule = {
             }
 
             $('#firstTh').html('Meaning');
-            $('#secondTh').html('Where are you from?');
-            $('#thirdTh').html('What is your nationality?');
+            $('#secondTh').html('Where are you from ?');
+            $('#thirdTh').html('What is your nationality ?');
             $('.fourthColumn').hide();
         },
         /* #endregion */
     },
     validation: {
-        vocabulary: function validationVocabulary() {
+        vocabulary: function vocabulary() {
             var rows = helperModule.getRows();
             var lengthOfRows = helperModule.getLengthOfRows(rows);
             var scores = 0;
@@ -59,12 +59,12 @@ var countryNationalityModule = {
                 var firstColumn = row.find('td.firstColumn');
                 var content = firstColumn.find('.hdf').val();
 
-                scores += helperModule.validationCell(row, "secondColumn", countryNationalityService.getCountry(content));
-                scores += helperModule.validationCell(row, "thirdColumn", countryNationalityService.getNationality(content));
+                scores += helperModule.validationCell(row, "secondColumn", countryNationalityService.get.answer.country(content));
+                scores += helperModule.validationCell(row, "thirdColumn", countryNationalityService.get.answer.nationality(content));
             }
             $('#scoreLbl').html(scores + "/20");
         },
-        question: function validationQuestion() {
+        question: function question() {
             var rows = helperModule.getRows();
             var lengthOfRows = helperModule.getLengthOfRows(rows);
             var scores = 0;
@@ -73,11 +73,11 @@ var countryNationalityModule = {
                 var firstColumn = row.find('td.firstColumn');
                 var content = firstColumn.find('.hdf').val();
 
-                var countryAnswer = "I am from " + countryNationalityService.getCountry(content);
-                scores += helperModule.validationCell(row, "secondColumn", countryAnswer.toLowerCase());
+                var countryAnswer = countryNationalityService.get.answer.country(content);
+                scores += helperModule.validationCell(row, "secondColumn", countryAnswer);
 
-                var nationalityAnswer = "I am " + countryNationalityService.getNationality(content);
-                scores += helperModule.validationCell(row, "thirdColumn", nationalityAnswer.toLowerCase());
+                var nationalityAnswer = countryNationalityService.get.answer.nationality(content);
+                scores += helperModule.validationCell(row, "thirdColumn", nationalityAnswer);
             }
             $('#scoreLbl').html(scores + "/20");
         }

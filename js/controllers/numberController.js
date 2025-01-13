@@ -33,6 +33,12 @@ function showItems() {
   else if (type === RANDOM_CONST.TYPE.COUNTRY_QUESTION) {
     countryNationalityModule.random.question();
   }
+  else if (type === RANDOM_CONST.TYPE.ANIMAL) {
+    animalModule.random.vocabulary();
+  }
+  else if (type === RANDOM_CONST.TYPE.FRUIT) {
+    fruitModule.random.vocabulary();
+  }
   $('.actionRight').addClass('hide');
 }
 /* #endregion */
@@ -43,7 +49,7 @@ function validation() {
     numberModule.validation();
   }
   else if (type === RANDOM_CONST.TYPE.DATE) {
-    timeModule.validation();
+    dateModule.validation();
   }
   else if (type === RANDOM_CONST.TYPE.TELLING_THE_TIME) {
     timeModule.validation();
@@ -53,6 +59,12 @@ function validation() {
   }
   else if (type === RANDOM_CONST.TYPE.COUNTRY_QUESTION) {
     countryNationalityModule.validation.question();
+  }
+  else if (type === RANDOM_CONST.TYPE.ANIMAL) {
+    animalModule.validation.vocabulary();
+  }
+  else if (type === RANDOM_CONST.TYPE.FRUIT) {
+    fruitModule.validation.vocabulary();
   }
   $('.actionRight').removeClass('hide');
 }
