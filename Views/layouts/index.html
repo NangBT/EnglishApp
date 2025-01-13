@@ -30,11 +30,39 @@
     <script src="../../js/plugins/jquery-1.9.1.min.js"></script>
     <script src="../../js/plugins/moments/moment.js"></script>
 
+    <script src="../../models/animalModel.js"></script>
+    <script src="../../models/countryModel.js"></script>
+    <script src="../../models/fruitModel.js"></script>
     <script src="../../models/numberModel.js"></script>
+
     <script src="../../js/utils/utilities.js"></script>
+
+    <script src="../../js/constants/grammarConstant.js"></script>
     <script src="../../js/constants/numberConstant.js"></script>
+
+    <script src="../../js/repositories/animalRepository.js"></script>
+    <script src="../../js/repositories/countryNationalityRepository.js"></script>
+
+    <script src="../../js/repositories/fruitRepository.js"></script>
     <script src="../../js/repositories/numberRepository.js"></script>
+
+    <script src="../../js/services/grammarService.js"></script>
+    <script src="../../js/services/animalService.js"></script>
+    <script src="../../js/services/countryNationalityService.js"></script>
+    <script src="../../js/services/fruitService.js"></script>
     <script src="../../js/services/numberService.js"></script>
+    <script src="../../js/services/timeService.js"></script>
+
+    <script src="../../js/modules/helperModule.js"></script>
+    <script src="../../js/modules/animalModule.js"></script>
+    <script src="../../js/modules/countryNationalityModule.js"></script>
+    <script src="../../js/modules/dateModule.js"></script>
+    <script src="../../js/modules/fruitModule.js"></script>
+    <script src="../../js/modules/numberModule.js"></script>
+    <script src="../../js/modules/timeModule.js"></script>
+
+    <script src="../../js/modules/animalRepository.js"></script>
+
     <script src="../../js/controllers/numberController.js"></script>
 
     <div class="body">
@@ -45,6 +73,13 @@
               <option value="number">Random Number</option>
               <option value="date">Random Date</option>
               <option value="telling_the_time">Random Telling The Time</option>
+
+              <option value="vocabulary_country">Country & Nationality</option>
+              <option value="question_country">
+                Question Country & Nationality
+              </option>
+              <option value="animal">Animal</option>
+              <option value="fruit">Fruit</option>
             </select>
             <button class="btn" id="randomBtn" title="Random">
               <i class="fa fa-random" aria-hidden="true"></i> Random
