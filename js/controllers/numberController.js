@@ -2,6 +2,15 @@
 $(document).ready(function () {
   showItems();
 
+  $('#resetBtn').click(function () {
+    var rows = helperModule.getRows();
+    var lengthOfRows = helperModule.getLengthOfRows(rows);
+    for (var i = 1; i < lengthOfRows; i++) {
+      var row = rows.eq(i);
+      helperModule.resetRow(row);
+    }
+  });
+
   $("#typeSelect").change(function () {
     showItems();
   });
