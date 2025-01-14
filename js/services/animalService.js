@@ -12,9 +12,10 @@ var animalService = {
                 var name = animalService.get.answer.name(keyword);
                 return grammarService.get.sentence.favorite(name, 'animal');
             },
-            howMuch: function howMuch(keyword, amount) {
-                var name = animalService.get.answer.name(keyword);
-                return grammarService.get.sentence.howMuch(name, amount);
+            howMuch: function howMuch(infoObj) {
+                console.log('infoObj: ', infoObj);
+                var name = animalService.get.answer.name(infoObj.keyword);
+                return grammarService.get.sentence.howMuch(name, infoObj.amount);
             },
         }
     }

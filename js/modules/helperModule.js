@@ -1,4 +1,4 @@
-var helperModule = {
+const helperModule = {
     /* #region  Get Rows In Table */
     getRows: function getRows() {
         return $("#randomNumberTbl").find("tr");
@@ -15,14 +15,14 @@ var helperModule = {
     /* #endregion */
     /* #region  Reset Cell */
     resetCell: function resetCell(row, cellClass) {
-        var cell = row.find("td." + cellClass);
+        let cell = row.find("td." + cellClass);
         cell.removeClass('successCell');
         cell.removeClass('errorCell');
 
-        var txt = cell.find(".txt");
+        let txt = cell.find(".txt");
         txt.val("");
 
-        var errorLbl = cell.find(".errorLbl");
+        let errorLbl = cell.find(".errorLbl");
         errorLbl.addClass("hide");
         errorLbl.html("");
     },
@@ -38,18 +38,26 @@ var helperModule = {
     },
     /* #endregion */
     /* #region  Validation Cell */
-    validationCell: function validationCell(row, cellClass, isValueValid) {
-        var score = 0;
-        var cell = row.find('td.' + cellClass);
+    validationCell: function validationCell(row, cellClass, callBackFunc, objInfo) {
+        let score = 0;
+        let cell = row.find('td.' + cellClass);
         cell.removeClass('errorCell');
         cell.removeClass('successCell');
 
-        var errorLbl = cell.find('.errorLbl');
+        let errorLbl = cell.find('.errorLbl');
         errorLbl.addClass('hide');
         errorLbl.removeClass('error');
 
-        var content = cell.find('.txt').val().toLowerCase().trim();
+        let content = cell.find('.txt').val().toLowerCase().trim();
         if (content.length > 0) {
+            let isValueValid = "";
+            if (callBackFunc != null) {
+                isValueValid = callBackFunc(objInfo);
+            }
+            else {
+                isValueValid = objInfo
+            }
+
             if (content === isValueValid.toLowerCase()) {
                 cell.addClass('successCell');
                 score++;
