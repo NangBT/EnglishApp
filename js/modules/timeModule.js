@@ -1,17 +1,17 @@
-var timeModule = {
+const timeModule = {
     /* #region  Random Time For Cells Label */
     random: function random() {
-        var rows = helperModule.getRows();
-        var lengthOfRows = helperModule.getLengthOfRows(rows);
+        let rows = helperModule.getRows();
+        let lengthOfRows = helperModule.getLengthOfRows(rows);
 
-        for (var i = 1; i < lengthOfRows; i++) {
-            var row = rows.eq(i);
-            var firstColumn = row.find('td.firstColumn');
-            var randomValue = utilities.random.time();
+        for (let i = 1; i < lengthOfRows; i++) {
+            let row = rows.eq(i);
+            let firstColumn = row.find('td.firstColumn');
+            let randomValue = utilities.random.time();
 
-            var lbl = firstColumn.find('.lbl');
+            let lbl = firstColumn.find('.lbl');
             lbl.html(moment(randomValue).format('HH:mm'));
-            var hdf = firstColumn.find('.hdf');
+            let hdf = firstColumn.find('.hdf');
             hdf.val(randomValue);
 
             helperModule.resetRow(row);
@@ -26,19 +26,24 @@ var timeModule = {
     /* #endregion */
     /* #region  Validation Telling The Time */
     validation: function validation() {
-        var rows = helperModule.getRows();
-        var lengthOfRows = helperModule.getLengthOfRows(rows);
-        var scores = 0;
-        for (var i = 1; i < lengthOfRows; i++) {
-            var row = rows.eq(i);
-            var firstColumn = row.find('td.firstColumn');
-            var content = firstColumn.find('.hdf').val();
-            var hours = parseInt(moment(content).format('HH'));
-            var minutes = parseInt(moment(content).format('mm'));
+        let rows = helperModule.getRows();
+        let lengthOfRows = helperModule.getLengthOfRows(rows);
+        let scores = 0;
+        for (let i = 1; i < lengthOfRows; i++) {
+            let row = rows.eq(i);
+            let firstColumn = row.find('td.firstColumn');
+            let content = firstColumn.find('.hdf').val();
+            let hours = parseInt(moment(content).format('HH'));
+            let minutes = parseInt(moment(content).format('mm'));
 
-            scores += helperModule.validationCell(row, "secondColumn", timeService.get.tellingTime(hours, minutes, TIMING_CONST.SESSION_TYPE.AM_PM));
-            scores += helperModule.validationCell(row, "thirdColumn", timeService.get.tellingTime(hours, minutes, TIMING_CONST.SESSION_TYPE.IN));
-            scores += helperModule.validationCell(row, "fourthColumn", timeService.get.writeTime(hours, minutes, TIMING_CONST.SESSION_TYPE.IN));
+            let secondInfoObj = { hours: hours, minutes: minutes, sessionType: TIMING_CONST.SESSION_TYPE.AM_PM };
+            scores += helperModule.validationCell(row, "secondColumn", timeService.get.tellingTime, secondInfoObj);
+
+            let thirdInfoObj = { hours: hours, minutes: minutes, sessionType: TIMING_CONST.SESSION_TYPE.IN };
+            scores += helperModule.validationCell(row, "thirdColumn", timeService.get.tellingTime, thirdInfoObj);
+
+            let fourthInfoObj = { hours: hours, minutes: minutes, sessionType: TIMING_CONST.SESSION_TYPE.IN };
+            scores += helperModule.validationCell(row, "fourthColumn", timeService.get.writeTime, fourthInfoObj);
 
         }
         $('#scoreLbl').html(scores + "/30");
