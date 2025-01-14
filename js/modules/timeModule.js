@@ -36,9 +36,9 @@ var timeModule = {
             var hours = parseInt(moment(content).format('HH'));
             var minutes = parseInt(moment(content).format('mm'));
 
-            scores += helperModule.validationCell(row, "secondColumn", timeService.getTellingTimeForRead(hours, minutes, TIMING_CONST.SESSION_TYPE.AM_PM));
-            scores += helperModule.validationCell(row, "thirdColumn", timeService.getTellingTimeForRead(hours, minutes, TIMING_CONST.SESSION_TYPE.IN));
-            scores += helperModule.validationCell(row, "fourthColumn", timeService.getTellingTimeForWrite(hours, minutes, TIMING_CONST.SESSION_TYPE.IN));
+            scores += helperModule.validationCell(row, "secondColumn", timeService.get.tellingTime(hours, minutes, TIMING_CONST.SESSION_TYPE.AM_PM));
+            scores += helperModule.validationCell(row, "thirdColumn", timeService.get.tellingTime(hours, minutes, TIMING_CONST.SESSION_TYPE.IN));
+            scores += helperModule.validationCell(row, "fourthColumn", timeService.get.writeTime(hours, minutes, TIMING_CONST.SESSION_TYPE.IN));
 
         }
         $('#scoreLbl').html(scores + "/30");

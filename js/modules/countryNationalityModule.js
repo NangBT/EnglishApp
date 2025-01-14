@@ -59,8 +59,8 @@ var countryNationalityModule = {
                 var firstColumn = row.find('td.firstColumn');
                 var content = firstColumn.find('.hdf').val();
 
-                scores += helperModule.validationCell(row, "secondColumn", countryNationalityService.get.answer.country(content));
-                scores += helperModule.validationCell(row, "thirdColumn", countryNationalityService.get.answer.nationality(content));
+                scores += helperModule.validationCell(row, "secondColumn", countryNationalityService.get.vocabulary.country(content));
+                scores += helperModule.validationCell(row, "thirdColumn", countryNationalityService.get.vocabulary.nationality(content));
             }
             $('#scoreLbl').html(scores + "/20");
         },
