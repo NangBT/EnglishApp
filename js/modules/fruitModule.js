@@ -1,6 +1,6 @@
 const fruitModule = {
     random: {
-        vocabulary: function vocabulary() {
+        vocabulary() {
             let rows = helperModule.getRows();
             let lengthOfRows = helperModule.getLengthOfRows(rows);
 
@@ -25,7 +25,7 @@ const fruitModule = {
         }
     },
     validation: {
-        vocabulary: function vocabulary() {
+        vocabulary() {
             let rows = helperModule.getRows();
             let lengthOfRows = helperModule.getLengthOfRows(rows);
             let scores = 0;

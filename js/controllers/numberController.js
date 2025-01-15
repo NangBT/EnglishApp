@@ -33,6 +33,11 @@ function showItems() {
   else if (type === RANDOM_CONST.TYPE.DATE) {
     dateModule.random();
   }
+  // if (type === RANDOM_CONST.TYPE.NUMBER || type === RANDOM_CONST.TYPE.DATE) {
+  //   console.log('showItemInHomePage: ', type);
+  //   showItemInHomePage[RANDOM_CONST.TYPE.NUMBER]
+  //   console.log('showItemInHomePage: Running....');
+  // }
   else if (type === RANDOM_CONST.TYPE.TELLING_THE_TIME) {
     timeModule.random();
   }
@@ -50,6 +55,11 @@ function showItems() {
   }
   $('.actionRight').addClass('hide');
 }
+
+// const showItemInHomePage = {
+//   "number": numberModule.random(),
+//   "date": dateModule.random()
+// }
 /* #endregion */
 
 function validation() {

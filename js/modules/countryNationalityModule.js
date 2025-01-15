@@ -1,7 +1,7 @@
 const countryNationalityModule = {
     /* #region  Random Country And Nationality For Cells Label */
     random: {
-        vocabulary: function vocabulary() {
+        vocabulary() {
             let rows = helperModule.getRows();
             let lengthOfRows = helperModule.getLengthOfRows(rows);
 
@@ -25,7 +25,7 @@ const countryNationalityModule = {
         },
         /* #endregion */
         /* #region  Random Question Country And Nationality For Cells Label */
-        question: function question() {
+        question() {
             let rows = helperModule.getRows();
             let lengthOfRows = helperModule.getLengthOfRows(rows);
 
@@ -50,7 +50,7 @@ const countryNationalityModule = {
         /* #endregion */
     },
     validation: {
-        vocabulary: function vocabulary() {
+        vocabulary() {
             let rows = helperModule.getRows();
             let lengthOfRows = helperModule.getLengthOfRows(rows);
             let scores = 0;
@@ -64,7 +64,7 @@ const countryNationalityModule = {
             }
             $('#scoreLbl').html(scores + "/20");
         },
-        question: function question() {
+        question() {
             let rows = helperModule.getRows();
             let lengthOfRows = helperModule.getLengthOfRows(rows);
             let scores = 0;

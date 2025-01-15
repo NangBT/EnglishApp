@@ -1,11 +1,11 @@
 const helperModule = {
     /* #region  Get Rows In Table */
-    getRows: function getRows() {
+    getRows() {
         return $("#randomNumberTbl").find("tr");
     },
     /* #endregion */
     /* #region  Get Length Of Rows */
-    getLengthOfRows: function getLengthOfRows(rows) {
+    getLengthOfRows(rows) {
         if (rows != null && rows != typeof undefined) {
             return helperModule.getRows().length;
         }
@@ -14,7 +14,7 @@ const helperModule = {
     },
     /* #endregion */
     /* #region  Reset Cell */
-    resetCell: function resetCell(row, cellClass) {
+    resetCell(row, cellClass) {
         let cell = row.find("td." + cellClass);
         cell.removeClass('successCell');
         cell.removeClass('errorCell');
@@ -28,7 +28,7 @@ const helperModule = {
     },
     /* #endregion */
     /* #region  Reset Row */
-    resetRow: function resetRow(row) {
+    resetRow(row) {
         helperModule.resetCell(row, "secondColumn");
         helperModule.resetCell(row, "thirdColumn");
         helperModule.resetCell(row, "fourthColumn");
@@ -38,7 +38,7 @@ const helperModule = {
     },
     /* #endregion */
     /* #region  Validation Cell */
-    validationCell: function validationCell(row, cellClass, callBackFunc, objInfo) {
+    validationCell(row, cellClass, callBackFunc, objInfo) {
         let score = 0;
         let cell = row.find('td.' + cellClass);
         cell.removeClass('errorCell');

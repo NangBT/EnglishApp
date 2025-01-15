@@ -1,6 +1,6 @@
 const dateModule = {
     /* #region  Random Date For Cells Label */
-    random: function random() {
+    random() {
         let rows = helperModule.getRows();
         let lengthOfRows = helperModule.getLengthOfRows(rows);
 
@@ -24,7 +24,7 @@ const dateModule = {
     /* #endregion */
 
     /* #region  Validation Date */
-    validation: function validation() {
+    validation() {
         let rows = helperModule.getRows();
         let lengthOfRows = helperModule.getLengthOfRows(rows);
         let scores = 0;

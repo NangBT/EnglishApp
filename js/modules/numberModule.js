@@ -1,6 +1,6 @@
 const numberModule = {
     /* #region  Random Number For Cells Label */
-    random: function random() {
+    random() {
         $('#firstTh').html('Number');
         $('#secondTh').html('Cardinal Number');
         $('#thirdTh').html('Ordinal Number');
@@ -23,7 +23,7 @@ const numberModule = {
     },
     /* #endregion */
     /* #region  Validation Number */
-    validation: function validation() {
+    validation() {
         let rows = helperModule.getRows();
         let lengthOfRows = helperModule.getLengthOfRows(rows);
         let scores = 0;
