@@ -1,6 +1,6 @@
 var numberService = {
   positions: [0, 1000, 1000000, 1000000000],
-  convertNumberToText: function convertNumberToText(number) {
+  convertNumberToText(number) {
     var threeNumber = 3;
     var numberText = number.toString(); // ==> 71,698,401
     var lengthOfNumber = numberText.length; // ==> 9
@@ -34,7 +34,7 @@ var numberService = {
     return results;
   },
 
-  convertThreeDigitsToText: function convertThreeDigitsToText(number) {
+  convertThreeDigitsToText(number) {
     var results = "";
     if (number >= 100) {
       var hundredsUnit = Math.floor(number / 100); // ==> 398 / 100 = Math.floor(3.98) => 3
@@ -60,7 +60,7 @@ var numberService = {
     return results.trim();
   },
 
-  convertThreeDigitToOrdinalText: function convertThreeDigitToOrdinalText(number) {
+  convertThreeDigitToOrdinalText(number) {
     var results = "";
     var twoCharacterLast = number;
     if (number > 20) {
@@ -73,7 +73,7 @@ var numberService = {
   },
 
   /* #region  Convert From "Thursday, June 3rd, 1999" To "Thursday, June the Third, One Thousand Nine Hundred Ninety Nine" */
-  convertDateToFullDateForRead: function convertDateToFullDateForRead(dateValue) {
+  convertDateToFullDateForRead(dateValue) {
     var dateReadValid = dateValue.format('dddd, MMMM');
     dateReadValid += ' the' + numberService.convertThreeDigitToOrdinalText(dateValue.date());
     dateReadValid += ", " + numberService.convertNumberToText(dateValue.year());

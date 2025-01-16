@@ -1,14 +1,14 @@
 const countryNationalityModule = {
     /* #region  Random Country And Nationality For Cells Label */
     random: {
-        vocabulary: function vocabulary() {
+        vocabulary() {
             let rows = helperModule.getRows();
             let lengthOfRows = helperModule.getLengthOfRows(rows);
 
             for (let i = 1; i < lengthOfRows; i++) {
                 let row = rows.eq(i);
                 let firstColumn = row.find('td.firstColumn');
-                let num = utilities.random.numberWithRange(10);
+                let num = utilities.random.numberWithRange(20);
                 let item = countryNationalityTbl[num];
                 let lbl = firstColumn.find('.lbl');
                 lbl.html(item.meaningVN);
@@ -25,14 +25,14 @@ const countryNationalityModule = {
         },
         /* #endregion */
         /* #region  Random Question Country And Nationality For Cells Label */
-        question: function question() {
+        question() {
             let rows = helperModule.getRows();
             let lengthOfRows = helperModule.getLengthOfRows(rows);
 
             for (let i = 1; i < lengthOfRows; i++) {
                 let row = rows.eq(i);
                 let firstColumn = row.find('td.firstColumn');
-                let num = utilities.random.numberWithRange(10);
+                let num = utilities.random.numberWithRange(20);
                 let item = countryNationalityTbl[num];
                 let lbl = firstColumn.find('.lbl');
                 lbl.html(item.meaningVN);
@@ -50,7 +50,7 @@ const countryNationalityModule = {
         /* #endregion */
     },
     validation: {
-        vocabulary: function vocabulary() {
+        vocabulary() {
             let rows = helperModule.getRows();
             let lengthOfRows = helperModule.getLengthOfRows(rows);
             let scores = 0;
@@ -64,7 +64,7 @@ const countryNationalityModule = {
             }
             $('#scoreLbl').html(scores + "/20");
         },
-        question: function question() {
+        question() {
             let rows = helperModule.getRows();
             let lengthOfRows = helperModule.getLengthOfRows(rows);
             let scores = 0;

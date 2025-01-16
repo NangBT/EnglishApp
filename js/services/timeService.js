@@ -1,6 +1,6 @@
 var timeService = {
     get: {
-        tellingTime: function tellingTime(objInfo) {
+        tellingTime(objInfo) {
             if (objInfo.sessionType === TIMING_CONST.SESSION_TYPE.IN) {
                 if (objInfo.minutes === 0 && (objInfo.hours === 0 || objInfo.hours === 12)) {
                     if (objInfo.hours === 0) {
@@ -34,7 +34,7 @@ var timeService = {
             }
             return result;
         },
-        writeTime: function writeTime(objInfo) {
+        writeTime(objInfo) {
             if (objInfo.minutes === 0 && (objInfo.hours === 0 || objInfo.hours === 12)) {
                 if (objInfo.hours === 0) {
                     return "It's midnight";
@@ -86,7 +86,7 @@ var timeService = {
                 return result;
             }
         },
-        hourText: function hourText(hours, minutes, isRound) {
+        hourText(hours, minutes, isRound) {
 
             var hoursText = "";
             if (hours === 0 || hours === 12) {
@@ -112,7 +112,7 @@ var timeService = {
             }
             return hoursText.trim();
         },
-        sessionText: function sessionText(hours, minutes, sessionType, isRound) {
+        sessionText(hours, minutes, sessionType, isRound) {
             if (sessionType === TIMING_CONST.SESSION_TYPE.AM_PM) {
                 if (0 <= hours && hours <= 11) {
                     return "AM";

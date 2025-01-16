@@ -1,6 +1,6 @@
 const timeModule = {
     /* #region  Random Time For Cells Label */
-    random: function random() {
+    random() {
         let rows = helperModule.getRows();
         let lengthOfRows = helperModule.getLengthOfRows(rows);
 
@@ -25,7 +25,7 @@ const timeModule = {
     },
     /* #endregion */
     /* #region  Validation Telling The Time */
-    validation: function validation() {
+    validation() {
         let rows = helperModule.getRows();
         let lengthOfRows = helperModule.getLengthOfRows(rows);
         let scores = 0;

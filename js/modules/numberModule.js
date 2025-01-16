@@ -23,7 +23,7 @@ const numberModule = {
     },
     /* #endregion */
     /* #region  Validation Number */
-    validation: function validation() {
+    validation() {
         let rows = helperModule.getRows();
         let lengthOfRows = helperModule.getLengthOfRows(rows);
         let scores = 0;
