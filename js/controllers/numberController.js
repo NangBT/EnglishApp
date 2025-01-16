@@ -23,67 +23,35 @@ $(document).ready(function () {
   });
 });
 /* #endregion */
+const showItemInHomePage = {
+  number: () => numberModule.random(),
+  date: () => dateModule.random(),
+  telling_the_time: () => timeModule.random(),
+  vocabulary_country: () => countryNationalityModule.random.vocabulary(),
+  question_country: () => countryNationalityModule.random.question(),
+  animal: () => animalModule.random.vocabulary(),
+  fruit: () => fruitModule.random.vocabulary()
+};
 
+const validationInHomePage = {
+  number: () => numberModule.validation(),
+  date: () => dateModule.validation(),
+  telling_the_time: () => timeModule.validation(),
+  vocabulary_country: () => countryNationalityModule.validation.vocabulary(),
+  question_country: () => countryNationalityModule.validation.question(),
+  animal: () => animalModule.validation.vocabulary(),
+  fruit: () => fruitModule.validation.vocabulary()
+}
 /* #region  Random Data By Type: Random Number, Random Date, Random Time*/
 function showItems() {
   var type = $('#typeSelect').val();
-  if (type === RANDOM_CONST.TYPE.NUMBER) {
-    numberModule.random();
-  }
-  else if (type === RANDOM_CONST.TYPE.DATE) {
-    dateModule.random();
-  }
-  // if (type === RANDOM_CONST.TYPE.NUMBER || type === RANDOM_CONST.TYPE.DATE) {
-  //   console.log('showItemInHomePage: ', type);
-  //   showItemInHomePage[RANDOM_CONST.TYPE.NUMBER]
-  //   console.log('showItemInHomePage: Running....');
-  // }
-  else if (type === RANDOM_CONST.TYPE.TELLING_THE_TIME) {
-    timeModule.random();
-  }
-  else if (type === RANDOM_CONST.TYPE.COUNTRY_VOCABULARY) {
-    countryNationalityModule.random.vocabulary();
-  }
-  else if (type === RANDOM_CONST.TYPE.COUNTRY_QUESTION) {
-    countryNationalityModule.random.question();
-  }
-  else if (type === RANDOM_CONST.TYPE.ANIMAL) {
-    animalModule.random.vocabulary();
-  }
-  else if (type === RANDOM_CONST.TYPE.FRUIT) {
-    fruitModule.random.vocabulary();
-  }
+  showItemInHomePage[type]();
   $('.actionRight').addClass('hide');
 }
-
-// const showItemInHomePage = {
-//   "number": numberModule.random(),
-//   "date": dateModule.random()
-// }
 /* #endregion */
 
 function validation() {
   var type = $('#typeSelect').val();
-  if (type === RANDOM_CONST.TYPE.NUMBER) {
-    numberModule.validation();
-  }
-  else if (type === RANDOM_CONST.TYPE.DATE) {
-    dateModule.validation();
-  }
-  else if (type === RANDOM_CONST.TYPE.TELLING_THE_TIME) {
-    timeModule.validation();
-  }
-  else if (type === RANDOM_CONST.TYPE.COUNTRY_VOCABULARY) {
-    countryNationalityModule.validation.vocabulary();
-  }
-  else if (type === RANDOM_CONST.TYPE.COUNTRY_QUESTION) {
-    countryNationalityModule.validation.question();
-  }
-  else if (type === RANDOM_CONST.TYPE.ANIMAL) {
-    animalModule.validation.vocabulary();
-  }
-  else if (type === RANDOM_CONST.TYPE.FRUIT) {
-    fruitModule.validation.vocabulary();
-  }
+  validationInHomePage[type]();
   $('.actionRight').removeClass('hide');
 }

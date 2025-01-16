@@ -1,6 +1,6 @@
 const dateModule = {
     /* #region  Random Date For Cells Label */
-    random() {
+    random: function random() {
         let rows = helperModule.getRows();
         let lengthOfRows = helperModule.getLengthOfRows(rows);
 

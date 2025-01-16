@@ -1,6 +1,6 @@
 const numberModule = {
     /* #region  Random Number For Cells Label */
-    random() {
+    random: function random() {
         $('#firstTh').html('Number');
         $('#secondTh').html('Cardinal Number');
         $('#thirdTh').html('Ordinal Number');
