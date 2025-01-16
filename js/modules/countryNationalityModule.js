@@ -8,7 +8,7 @@ const countryNationalityModule = {
             for (let i = 1; i < lengthOfRows; i++) {
                 let row = rows.eq(i);
                 let firstColumn = row.find('td.firstColumn');
-                let num = utilities.random.numberWithRange(20);
+                let num = utilities.random.numberWithRange(countryNationalityTbl.length);
                 let item = countryNationalityTbl[num];
                 let lbl = firstColumn.find('.lbl');
                 lbl.html(item.meaningVN);
@@ -32,7 +32,7 @@ const countryNationalityModule = {
             for (let i = 1; i < lengthOfRows; i++) {
                 let row = rows.eq(i);
                 let firstColumn = row.find('td.firstColumn');
-                let num = utilities.random.numberWithRange(20);
+                let num = utilities.random.numberWithRange(countryNationalityTbl.length);
                 let item = countryNationalityTbl[num];
                 let lbl = firstColumn.find('.lbl');
                 lbl.html(item.meaningVN);
