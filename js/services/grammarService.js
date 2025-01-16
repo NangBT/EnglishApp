@@ -1,7 +1,7 @@
 var grammarService = {
     get: {
         tobe: {
-            bySubject: function bySubject(subject) {
+            bySubject(subject) {
                 if (subject === SUBJECT_CONST.I) {
                     return TOBE_CONST.AM;
                 }
@@ -13,7 +13,7 @@ var grammarService = {
                 }
                 return "";
             },
-            byAmount: function byAmount(amount) {
+            byAmount(amount) {
                 if (amount === 1) {
                     return TOBE_CONST.IS;
                 }
@@ -22,7 +22,7 @@ var grammarService = {
                 }
                 return "";
             },
-            byArticles: function byArticles(word) {
+            byArticles(word) {
                 var firstCharacter = word.substring(0, 1).toLowerCase();
                 if (firstCharacter === VOWELS_CONST.U || firstCharacter === VOWELS_CONST.E || firstCharacter === VOWELS_CONST.A || firstCharacter === VOWELS_CONST.O || firstCharacter === VOWELS_CONST.I) {
                     return ARTICLE_CONST.AN;
@@ -31,7 +31,7 @@ var grammarService = {
                     return ARTICLE_CONST.A;
                 }
             },
-            AddTail: function AddTail(amount) {
+            addTail(amount) {
                 if (amount > 1) {
                     return "s";
                 }
@@ -39,19 +39,19 @@ var grammarService = {
             }
         },
         sentence: {
-            what: function what(name) {
+            what(name) {
                 name = name.toLowerCase();
                 return "It's " + grammarService.get.tobe.byArticles(name).toLowerCase() + " " + name;
             },
-            favorite: function favorite(name, type) {
+            favorite(name, type) {
                 name = name.toLowerCase();
                 return "My favorite " + type + " " + grammarService.get.tobe.byAmount(1) + " " + name;
             },
-            howMuch: function howMuch(name, amount) {
+            howMuch(name, amount) {
                 name = name.toLowerCase();
-                return grammarService.get.tobe.byArticles(name) + " " + name + " costs " + amount + " dollar" + grammarService.get.tobe.AddTail(amount);
+                return grammarService.get.tobe.byArticles(name) + " " + name + " costs " + amount + " dollar" + grammarService.get.tobe.addTail(amount);
             },
-            howMany: function howMany(name, amount) {
+            howMany(name, amount) {
                 name = name.toLowerCase();
                 return "There " + grammarService.get.tobe.byAmount(amount) + " " + amount + name;
             }

@@ -1,11 +1,11 @@
-var helperModule = {
+const helperModule = {
     /* #region  Get Rows In Table */
-    getRows: function getRows() {
+    getRows() {
         return $("#randomNumberTbl").find("tr");
     },
     /* #endregion */
     /* #region  Get Length Of Rows */
-    getLengthOfRows: function getLengthOfRows(rows) {
+    getLengthOfRows(rows) {
         if (rows != null && rows != typeof undefined) {
             return helperModule.getRows().length;
         }
@@ -14,21 +14,21 @@ var helperModule = {
     },
     /* #endregion */
     /* #region  Reset Cell */
-    resetCell: function resetCell(row, cellClass) {
-        var cell = row.find("td." + cellClass);
+    resetCell(row, cellClass) {
+        let cell = row.find("td." + cellClass);
         cell.removeClass('successCell');
         cell.removeClass('errorCell');
 
-        var txt = cell.find(".txt");
+        let txt = cell.find(".txt");
         txt.val("");
 
-        var errorLbl = cell.find(".errorLbl");
+        let errorLbl = cell.find(".errorLbl");
         errorLbl.addClass("hide");
         errorLbl.html("");
     },
     /* #endregion */
     /* #region  Reset Row */
-    resetRow: function resetRow(row) {
+    resetRow(row) {
         helperModule.resetCell(row, "secondColumn");
         helperModule.resetCell(row, "thirdColumn");
         helperModule.resetCell(row, "fourthColumn");
@@ -38,18 +38,26 @@ var helperModule = {
     },
     /* #endregion */
     /* #region  Validation Cell */
-    validationCell: function validationCell(row, cellClass, isValueValid) {
-        var score = 0;
-        var cell = row.find('td.' + cellClass);
+    validationCell(row, cellClass, callBackFunc, objInfo) {
+        let score = 0;
+        let cell = row.find('td.' + cellClass);
         cell.removeClass('errorCell');
         cell.removeClass('successCell');
 
-        var errorLbl = cell.find('.errorLbl');
+        let errorLbl = cell.find('.errorLbl');
         errorLbl.addClass('hide');
         errorLbl.removeClass('error');
 
-        var content = cell.find('.txt').val().toLowerCase().trim();
+        let content = cell.find('.txt').val().toLowerCase().trim();
         if (content.length > 0) {
+            let isValueValid = "";
+            if (callBackFunc != null) {
+                isValueValid = callBackFunc(objInfo);
+            }
+            else {
+                isValueValid = objInfo
+            }
+
             if (content === isValueValid.toLowerCase()) {
                 cell.addClass('successCell');
                 score++;

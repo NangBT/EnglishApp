@@ -1,17 +1,17 @@
-var dateModule = {
+const dateModule = {
     /* #region  Random Date For Cells Label */
     random: function random() {
-        var rows = helperModule.getRows();
-        var lengthOfRows = helperModule.getLengthOfRows(rows);
+        let rows = helperModule.getRows();
+        let lengthOfRows = helperModule.getLengthOfRows(rows);
 
-        for (var i = 1; i < lengthOfRows; i++) {
-            var row = rows.eq(i);
+        for (let i = 1; i < lengthOfRows; i++) {
+            let row = rows.eq(i);
 
-            var randomValue = utilities.random.date();
-            var lbl = row.find("td.firstColumn .lbl");
+            let randomValue = utilities.random.date();
+            let lbl = row.find("td.firstColumn .lbl");
             lbl.html(moment(randomValue).format('d - DD/MM/YYYY'));
 
-            var hdf = row.find("td.firstColumn .hdf");
+            let hdf = row.find("td.firstColumn .hdf");
             hdf.val(randomValue);
             helperModule.resetRow(row);
         }
@@ -24,18 +24,18 @@ var dateModule = {
     /* #endregion */
 
     /* #region  Validation Date */
-    validation: function validation() {
-        var rows = helperModule.getRows();
-        var lengthOfRows = helperModule.getLengthOfRows(rows);
-        var scores = 0;
-        for (var i = 1; i < lengthOfRows; i++) {
-            var row = rows.eq(i);
-            var firstColumn = row.find('td.firstColumn');
-            var content = firstColumn.find('.hdf').val();
-            var dateValue = moment(content);
+    validation() {
+        let rows = helperModule.getRows();
+        let lengthOfRows = helperModule.getLengthOfRows(rows);
+        let scores = 0;
+        for (let i = 1; i < lengthOfRows; i++) {
+            let row = rows.eq(i);
+            let firstColumn = row.find('td.firstColumn');
+            let content = firstColumn.find('.hdf').val();
+            let dateValue = moment(content);
 
-            scores += helperModule.validationCell(row, "secondColumn", utilities.format.dateToText(dateValue).trim());
-            scores += helperModule.validationCell(row, "thirdColumn", numberService.convertDateToFullDateForRead(dateValue));
+            scores += helperModule.validationCell(row, "secondColumn", utilities.format.dateToText, dateValue);
+            scores += helperModule.validationCell(row, "thirdColumn", numberService.convertDateToFullDateForRead, dateValue);
         }
         $('#scoreLbl').html(scores + "/20");
     }

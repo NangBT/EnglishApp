@@ -1,8 +1,13 @@
-var countryNationalityTbl = [
+const countryNationalityTbl = [
     {
         "country": "Vietnam",
         "nationality": "Vietnamese",
         "meaningVN": "Việt Nam"
+    },
+    {
+        "country": "Singapore",
+        "nationality": "Singaporean",
+        "meaningVN": "Singapore"
     },
     {
         "country": "China",
@@ -39,7 +44,6 @@ var countryNationalityTbl = [
         "nationality": "Danish",
         "meaningVN": "Đan Mạch"
     },
-
     {
         "country": "America",
         "nationality": "American",
@@ -75,7 +79,6 @@ var countryNationalityTbl = [
         "nationality": "Thai",
         "meaningVN": "Thái Lan"
     },
-
     {
         "country": "Italy",
         "nationality": "Italian",
@@ -86,12 +89,6 @@ var countryNationalityTbl = [
         "nationality": "Brazilian",
         "meaningVN": "Brazil"
     },
-    {
-        "country": "Singapore",
-        "nationality": "Singaporean",
-        "meaningVN": "Singapore"
-    },
-
     {
         "country": "Ukraine",
         "nationality": "Ukrainian",

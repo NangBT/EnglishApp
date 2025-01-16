@@ -1,18 +1,18 @@
-var countryNationalityModule = {
+const countryNationalityModule = {
     /* #region  Random Country And Nationality For Cells Label */
     random: {
-        vocabulary: function vocabulary() {
-            var rows = helperModule.getRows();
-            var lengthOfRows = helperModule.getLengthOfRows(rows);
+        vocabulary() {
+            let rows = helperModule.getRows();
+            let lengthOfRows = helperModule.getLengthOfRows(rows);
 
-            for (var i = 1; i < lengthOfRows; i++) {
-                var row = rows.eq(i);
-                var firstColumn = row.find('td.firstColumn');
-                var num = utilities.random.numberWithRange(10);
-                var item = countryNationalityTbl[num];
-                var lbl = firstColumn.find('.lbl');
+            for (let i = 1; i < lengthOfRows; i++) {
+                let row = rows.eq(i);
+                let firstColumn = row.find('td.firstColumn');
+                let num = utilities.random.numberWithRange(20);
+                let item = countryNationalityTbl[num];
+                let lbl = firstColumn.find('.lbl');
                 lbl.html(item.meaningVN);
-                var hdf = firstColumn.find('.hdf');
+                let hdf = firstColumn.find('.hdf');
                 hdf.val(item.meaningVN);
 
                 helperModule.resetRow(row);
@@ -25,18 +25,18 @@ var countryNationalityModule = {
         },
         /* #endregion */
         /* #region  Random Question Country And Nationality For Cells Label */
-        question: function question() {
-            var rows = helperModule.getRows();
-            var lengthOfRows = helperModule.getLengthOfRows(rows);
+        question() {
+            let rows = helperModule.getRows();
+            let lengthOfRows = helperModule.getLengthOfRows(rows);
 
-            for (var i = 1; i < lengthOfRows; i++) {
-                var row = rows.eq(i);
-                var firstColumn = row.find('td.firstColumn');
-                var num = utilities.random.numberWithRange(10);
-                var item = countryNationalityTbl[num];
-                var lbl = firstColumn.find('.lbl');
+            for (let i = 1; i < lengthOfRows; i++) {
+                let row = rows.eq(i);
+                let firstColumn = row.find('td.firstColumn');
+                let num = utilities.random.numberWithRange(20);
+                let item = countryNationalityTbl[num];
+                let lbl = firstColumn.find('.lbl');
                 lbl.html(item.meaningVN);
-                var hdf = firstColumn.find('.hdf');
+                let hdf = firstColumn.find('.hdf');
                 hdf.val(item.meaningVN);
 
                 helperModule.resetRow(row);
@@ -50,34 +50,31 @@ var countryNationalityModule = {
         /* #endregion */
     },
     validation: {
-        vocabulary: function vocabulary() {
-            var rows = helperModule.getRows();
-            var lengthOfRows = helperModule.getLengthOfRows(rows);
-            var scores = 0;
-            for (var i = 1; i < lengthOfRows; i++) {
-                var row = rows.eq(i);
-                var firstColumn = row.find('td.firstColumn');
-                var content = firstColumn.find('.hdf').val();
+        vocabulary() {
+            let rows = helperModule.getRows();
+            let lengthOfRows = helperModule.getLengthOfRows(rows);
+            let scores = 0;
+            for (let i = 1; i < lengthOfRows; i++) {
+                let row = rows.eq(i);
+                let firstColumn = row.find('td.firstColumn');
+                let content = firstColumn.find('.hdf').val();
 
-                scores += helperModule.validationCell(row, "secondColumn", countryNationalityService.get.vocabulary.country(content));
-                scores += helperModule.validationCell(row, "thirdColumn", countryNationalityService.get.vocabulary.nationality(content));
+                scores += helperModule.validationCell(row, "secondColumn", countryNationalityService.get.vocabulary.country, content);
+                scores += helperModule.validationCell(row, "thirdColumn", countryNationalityService.get.vocabulary.nationality, content);
             }
             $('#scoreLbl').html(scores + "/20");
         },
-        question: function question() {
-            var rows = helperModule.getRows();
-            var lengthOfRows = helperModule.getLengthOfRows(rows);
-            var scores = 0;
-            for (var i = 1; i < lengthOfRows; i++) {
-                var row = rows.eq(i);
-                var firstColumn = row.find('td.firstColumn');
-                var content = firstColumn.find('.hdf').val();
+        question() {
+            let rows = helperModule.getRows();
+            let lengthOfRows = helperModule.getLengthOfRows(rows);
+            let scores = 0;
+            for (let i = 1; i < lengthOfRows; i++) {
+                let row = rows.eq(i);
+                let firstColumn = row.find('td.firstColumn');
+                let content = firstColumn.find('.hdf').val();
 
-                var countryAnswer = countryNationalityService.get.answer.country(content);
-                scores += helperModule.validationCell(row, "secondColumn", countryAnswer);
-
-                var nationalityAnswer = countryNationalityService.get.answer.nationality(content);
-                scores += helperModule.validationCell(row, "thirdColumn", nationalityAnswer);
+                scores += helperModule.validationCell(row, "secondColumn", countryNationalityService.get.answer.country, content);
+                scores += helperModule.validationCell(row, "thirdColumn", countryNationalityService.get.answer.nationality, content);
             }
             $('#scoreLbl').html(scores + "/20");
         }

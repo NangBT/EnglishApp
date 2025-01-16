@@ -1,13 +1,13 @@
 var numberRepository = {
-  getCardinalTextByNumber: function getCardinalTextByNumber(number) {
+  getCardinalTextByNumber(number) {
     var info = cardinalNumberTbl.find((x) => x.number === number);
     return (info != null && info != undefined) ? info.cardinal : "";
   },
-  getOrdinalTextByNumber: function getOrdinalTextByNumber(number) {
+  getOrdinalTextByNumber(number) {
     var info = ordinalNumberTbl.find((x) => x.number === number);
     return (info != null && info != undefined) ? info.ordinal : "";
   },
-  formatOrdinalText: function formatOrdinalText(twoDigitsLast) {
+  formatOrdinalText(twoDigitsLast) {
     var numberText = '';
     if (twoDigitsLast === 0) { return "th"; }
     else if (twoDigitsLast < 13) { // 1 => 12
