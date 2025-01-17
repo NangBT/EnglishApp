@@ -1,8 +1,8 @@
 const timeModule = {
     /* #region  Random Time For Cells Label */
     random() {
-        let rows = helperModule.getRows();
-        let lengthOfRows = helperModule.getLengthOfRows(rows);
+        let rows = helperModule.get.rows();
+        let lengthOfRows = helperModule.get.lengthOfRows(rows);
 
         for (let i = 1; i < lengthOfRows; i++) {
             let row = rows.eq(i);
@@ -14,7 +14,7 @@ const timeModule = {
             let hdf = firstColumn.find('.hdf');
             hdf.val(randomValue);
 
-            helperModule.resetRow(row);
+            helperModule.reset.row(row);
         }
 
         $('#firstTh').html('Time');
@@ -26,8 +26,8 @@ const timeModule = {
     /* #endregion */
     /* #region  Validation Telling The Time */
     validation() {
-        let rows = helperModule.getRows();
-        let lengthOfRows = helperModule.getLengthOfRows(rows);
+        let rows = helperModule.get.rows();
+        let lengthOfRows = helperModule.get.lengthOfRows(rows);
         let scores = 0;
         for (let i = 1; i < lengthOfRows; i++) {
             let row = rows.eq(i);
@@ -37,13 +37,13 @@ const timeModule = {
             let minutes = parseInt(moment(content).format('mm'));
 
             let secondInfoObj = { hours: hours, minutes: minutes, sessionType: TIMING_CONST.SESSION_TYPE.AM_PM };
-            scores += helperModule.validationCell(row, "secondColumn", timeService.get.tellingTime, secondInfoObj);
+            scores += helperModule.validation.cell(row, "secondColumn", timeService.get.tellingTime, secondInfoObj);
 
             let thirdInfoObj = { hours: hours, minutes: minutes, sessionType: TIMING_CONST.SESSION_TYPE.IN };
-            scores += helperModule.validationCell(row, "thirdColumn", timeService.get.tellingTime, thirdInfoObj);
+            scores += helperModule.validation.cell(row, "thirdColumn", timeService.get.tellingTime, thirdInfoObj);
 
             let fourthInfoObj = { hours: hours, minutes: minutes, sessionType: TIMING_CONST.SESSION_TYPE.IN };
-            scores += helperModule.validationCell(row, "fourthColumn", timeService.get.writeTime, fourthInfoObj);
+            scores += helperModule.validation.cell(row, "fourthColumn", timeService.get.writeTime, fourthInfoObj);
 
         }
         $('#scoreLbl').html(scores + "/30");
