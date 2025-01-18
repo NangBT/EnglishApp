@@ -1,11 +1,17 @@
 const numberModule = {
     /* #region  Random Number For Cells Label */
     random: function random() {
+        /* #region  Header Of Table */
         $('#firstTh').html('Number');
         $('#secondTh').html('Cardinal Number');
         $('#thirdTh').html('Ordinal Number');
         $('#fourTh').html('Acronym');
         $('.fourthColumn').show();
+
+        helperModule.set.totalScores(3);
+        /* #endregion */
+
+        /* #region  Random value for first column */
         let rows = helperModule.get.rows();
         let lengthOfRows = helperModule.get.lengthOfRows(rows);
 
@@ -20,6 +26,7 @@ const numberModule = {
             hdf.val(randomValue);
             helperModule.reset.row(row);
         }
+        /* #endregion */
     },
     /* #endregion */
     /* #region  Validation Number */
@@ -43,8 +50,8 @@ const numberModule = {
                 twoCharacterLast = ordinalNumberText.substring(ordinalNumberText.length - 2, ordinalNumberText.length);
             }
             scores += helperModule.validation.cell(row, "fourthColumn", null, (utilities.format.numberToText(content) + twoCharacterLast));
-            $('#scoreLbl').html(scores + "/30");
         }
+        helperModule.set.scores(scores);
     }
     /* #endregion */
 }

@@ -18,6 +18,14 @@ const helperModule = {
         },
         /* #endregion */
     },
+    set: {
+        scores(scores) {
+            $('#scoreLbl').html(scores);
+        },
+        totalScores(totalColumnToValidation) {
+            $('#totalScoreLbl').html("/" + (totalColumnToValidation * 10));
+        }
+    },
     reset: {
         /* #region  Reset Cell */
         cell(row, cellClass) {
@@ -81,25 +89,10 @@ const helperModule = {
         },
         /* #endregion */
     },
-
     random: {
         row(configInfo) {
-            let rows = helperModule.get.rows();
-            let lengthOfRows = helperModule.get.lengthOfRows(rows);
-
-            for (let i = 1; i < lengthOfRows; i++) {
-                let row = rows.eq(i);
-                let firstColumn = row.find('td.firstColumn');
-                let num = configInfo.callBackFunc(configInfo.paramsOfFunc);
-                let item = configInfo.data[num];
-                let lbl = firstColumn.find('.lbl');
-                lbl.html(item.meaningVN);
-                let hdf = firstColumn.find('.hdf');
-                hdf.val(item.meaningVN);
-
-                helperModule.reset.row(row);
-            }
-
+            /* #region  Header Of Table */
+            $('.firstColumn, .secondColumn, .thirdColumn, .fourthColumn').hide();
             for (let index = 0; index < configInfo.columns.length; index++) {
                 const item = configInfo.columns[index];
                 let columnId = '';
@@ -123,6 +116,26 @@ const helperModule = {
                 $('#' + columnId).html(item.title);
                 $('.' + columnClass).show();
             }
+            helperModule.set.totalScores(configInfo.columns.length - 1);
+            /* #endregion */
+
+            /* #region  Random value for first column */
+            let rows = helperModule.get.rows();
+            let lengthOfRows = helperModule.get.lengthOfRows(rows);
+
+            for (let i = 1; i < lengthOfRows; i++) {
+                let row = rows.eq(i);
+                let firstColumn = row.find('td.firstColumn');
+                let num = configInfo.callBackFunc(configInfo.paramsOfFunc);
+                let item = configInfo.data[num];
+                let lbl = firstColumn.find('.lbl');
+                lbl.html(item.meaningVN);
+                let hdf = firstColumn.find('.hdf');
+                hdf.val(item.meaningVN);
+
+                helperModule.reset.row(row);
+            }
+            /* #endregion */
         }
     }
 }

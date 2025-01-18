@@ -1,6 +1,16 @@
 const dateModule = {
     /* #region  Random Date For Cells Label */
     random: function random() {
+        /* #region  Header Of Table */
+        $('#firstTh').html('Date');
+        $('#secondTh').html('Full Date (Write)');
+        $('#thirdTh').html('Full Date (Read)');
+        $('.fourthColumn').hide();
+
+        helperModule.set.totalScores(2);
+        /* #endregion */
+
+        /* #region  Random value for first column */
         let rows = helperModule.get.rows();
         let lengthOfRows = helperModule.get.lengthOfRows(rows);
 
@@ -15,11 +25,7 @@ const dateModule = {
             hdf.val(randomValue);
             helperModule.reset.row(row);
         }
-
-        $('#firstTh').html('Date');
-        $('#secondTh').html('Full Date (Write)');
-        $('#thirdTh').html('Full Date (Read)');
-        $('.fourthColumn').hide();
+        /* #endregion */
     },
     /* #endregion */
 
@@ -37,7 +43,7 @@ const dateModule = {
             scores += helperModule.validation.cell(row, "secondColumn", utilities.format.dateToText, dateValue);
             scores += helperModule.validation.cell(row, "thirdColumn", numberService.convertDateToFullDateForRead, dateValue);
         }
-        $('#scoreLbl').html(scores + "/20");
+        helperModule.set.scores(scores);
     }
     /* #endregion */
 }

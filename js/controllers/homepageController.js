@@ -9,6 +9,7 @@ $(document).ready(function () {
       var row = rows.eq(i);
       helperModule.reset.row(row);
     }
+    helperModule.set.scores(0);
   });
 
   $("#typeSelect").change(function () {

@@ -31,7 +31,7 @@ const animalModule = {
                 let infoObj = { keyword: content, amount: 1 };
                 scores += helperModule.validation.cell(row, "fourthColumn", animalService.get.answer.howMuch, infoObj);
             }
-            $('#scoreLbl').html(scores + "/30");
+            helperModule.set.scores(scores);
         }
     }
 }

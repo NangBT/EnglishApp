@@ -2,7 +2,6 @@ var animalService = {
     get: {
         answer: {
             name(keyword) {
-                console.log('keyword: ', keyword);
                 return animalRepository.get.name(keyword);
             },
             what(keyword) {
@@ -17,7 +16,7 @@ var animalService = {
 
                 var name = animalService.get.answer.name(infoObj.keyword);
                 return grammarService.get.sentence.howMuch(name, infoObj.amount);
-            },
+            }
         }
     }
 }

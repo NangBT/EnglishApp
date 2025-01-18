@@ -125,12 +125,11 @@ table {
   border: 1px white solid;
   padding: 10px;
 }
-#scoreLbl {
+.scoresLbl {
   font-weight: bold;
   color: white;
   font-size: 36px;
   vertical-align: middle;
-  margin-left: 10px;
 }
 .error {
   display: inline-block;

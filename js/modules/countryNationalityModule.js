@@ -13,7 +13,6 @@ const countryNationalityModule = {
                 data: countryNationalityTbl
             }
             helperModule.random.row(configInfo);
-            $('.fourthColumn').hide();
         },
         /* #endregion */
         /* #region  Random Question Country And Nationality For Cells Label */
@@ -29,7 +28,6 @@ const countryNationalityModule = {
                 data: countryNationalityTbl
             }
             helperModule.random.row(configInfo);
-            $('.fourthColumn').hide();
         },
         /* #endregion */
     },
@@ -46,7 +44,7 @@ const countryNationalityModule = {
                 scores += helperModule.validation.cell(row, "secondColumn", countryNationalityService.get.vocabulary.country, content);
                 scores += helperModule.validation.cell(row, "thirdColumn", countryNationalityService.get.vocabulary.nationality, content);
             }
-            $('#scoreLbl').html(scores + "/20");
+            helperModule.set.scores(scores);
         },
         question() {
             let rows = helperModule.get.rows();
@@ -60,7 +58,7 @@ const countryNationalityModule = {
                 scores += helperModule.validation.cell(row, "secondColumn", countryNationalityService.get.answer.country, content);
                 scores += helperModule.validation.cell(row, "thirdColumn", countryNationalityService.get.answer.nationality, content);
             }
-            $('#scoreLbl').html(scores + "/20");
+            helperModule.set.scores(scores);
         }
     }
 }

@@ -30,11 +30,6 @@ var fruitTbl = [
         "image": "https://images.everydayhealth.com/images/diet-nutrition/benefites-of-pinapple-alt1-1440x810.jpg"
     },
     {
-        "name": "Cherry",
-        "meaningVN": "Quả Anh Đào",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQolHTVCJ0Odg4z16t9LOu34w3z0XfGS0BUNQ&s"
-    },
-    {
         "name": "Pear",
         "meaningVN": "Quả Lê",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW6SCiY1qrrUf3bcLZF_ypiDnxBB4IUEDytA&s"
@@ -148,6 +143,11 @@ var fruitTbl = [
         "name": "Olive",
         "meaningVN": "Ô Liu",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOyzUR_809pv5JaephX2VsSh_ZDCV1d1ZrxA&s"
+    },
+    {
+        "name": "Cherry",
+        "meaningVN": "Quả Anh Đào",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQolHTVCJ0Odg4z16t9LOu34w3z0XfGS0BUNQ&s"
     },
     {
         "name": "Longan",

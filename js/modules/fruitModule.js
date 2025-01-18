@@ -9,7 +9,7 @@ const fruitModule = {
                     { title: 'How many is fruit_name ?' }
                 ],
                 callBackFunc: utilities.random.numberWithRange,
-                paramsOfFunc: 15,
+                paramsOfFunc: 25,
                 data: fruitTbl
             }
             helperModule.random.row(configInfo);
@@ -31,7 +31,7 @@ const fruitModule = {
                 let infoObj = { keyword: content, amount: 2 };
                 scores += helperModule.validation.cell(row, "fourthColumn", fruitService.get.answer.howMuch, infoObj);
             }
-            $('#scoreLbl').html(scores + "/30");
+            helperModule.set.scores(scores);
         }
     }
 }

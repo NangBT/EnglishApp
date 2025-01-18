@@ -22,6 +22,7 @@ const timeModule = {
         $('#thirdTh').html('Telling The Time (Read - In)');
         $('#fourTh').html('Telling The Time (Write)');
         $('.fourthColumn').show();
+        helperModule.set.totalScores(3)
     },
     /* #endregion */
     /* #region  Validation Telling The Time */
@@ -44,9 +45,8 @@ const timeModule = {
 
             let fourthInfoObj = { hours: hours, minutes: minutes, sessionType: TIMING_CONST.SESSION_TYPE.IN };
             scores += helperModule.validation.cell(row, "fourthColumn", timeService.get.writeTime, fourthInfoObj);
-
         }
-        $('#scoreLbl').html(scores + "/30");
+        helperModule.set.scores(scores);
     }
     /* #endregion */
 }
