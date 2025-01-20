@@ -1,0 +1,21 @@
+a {
+  color: black;
+}
+/* p:nth-child(1) {
+  color: teal;
+} */
+
+p[title="sports"] {
+  color: teal;
+}
+p.sports {
+  font-size: 40px;
+  color: chocolate;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* h2:target {
+  color: tomato;
+  font-size: 25px;
+  font-weight: bold;
+}
