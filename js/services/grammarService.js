@@ -136,8 +136,7 @@ const grammarService = {
                 return "My favorite " + result.toLocaleLowerCase();
             },
             howMuch(info) {
-                let name = 'avocado';
-                // let name = info.name.toLowerCase();
+                let name = info.name.toLowerCase();
                 // Ex1: One apple costs one dollar
                 // Ex2: One apple costs two dollars
                 // Ex3: Two apples cost one dollar
