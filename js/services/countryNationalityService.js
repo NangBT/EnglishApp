@@ -1,4 +1,4 @@
-var countryNationalityService = {
+const countryNationalityService = {
     get: {
         vocabulary: {
             country(meaningVn) {

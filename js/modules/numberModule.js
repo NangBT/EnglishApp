@@ -1,13 +1,19 @@
 const numberModule = {
     /* #region  Random Number For Cells Label */
     random: function random() {
+        /* #region  Header Of Table */
         $('#firstTh').html('Number');
         $('#secondTh').html('Cardinal Number');
         $('#thirdTh').html('Ordinal Number');
         $('#fourTh').html('Acronym');
         $('.fourthColumn').show();
-        let rows = helperModule.getRows();
-        let lengthOfRows = helperModule.getLengthOfRows(rows);
+
+        helperModule.set.totalScores(3);
+        /* #endregion */
+
+        /* #region  Random value for first column */
+        let rows = helperModule.get.rows();
+        let lengthOfRows = helperModule.get.lengthOfRows(rows);
 
         for (let i = 1; i < lengthOfRows; i++) {
             let row = rows.eq(i);
@@ -18,14 +24,15 @@ const numberModule = {
 
             let hdf = row.find("td.firstColumn .hdf");
             hdf.val(randomValue);
-            helperModule.resetRow(row);
+            helperModule.reset.row(row);
         }
+        /* #endregion */
     },
     /* #endregion */
     /* #region  Validation Number */
     validation() {
-        let rows = helperModule.getRows();
-        let lengthOfRows = helperModule.getLengthOfRows(rows);
+        let rows = helperModule.get.rows();
+        let lengthOfRows = helperModule.get.lengthOfRows(rows);
         let scores = 0;
         for (let i = 1; i < lengthOfRows; i++) {
             let row = rows.eq(i);
@@ -33,18 +40,17 @@ const numberModule = {
             let content = firstColumn.find('.hdf').val();
             let numberValue = parseInt(content);
 
-            scores += helperModule.validationCell(row, "secondColumn", numberService.convertNumberToText, numberValue);
-
-            let ordinalNumberText = numberService.convertThreeDigitToOrdinalText(numberValue).trim();
-            scores += helperModule.validationCell(row, "thirdColumn", null, ordinalNumberText);
+            scores += helperModule.validation.cell(row, "secondColumn", numberService.convertNumberToText, numberValue);
+            let ordinalNumberText = numberService.convertDigitsToOrdinalText(numberValue).trim();
+            scores += helperModule.validation.cell(row, "thirdColumn", null, ordinalNumberText);
 
             let twoCharacterLast = "";
             if (ordinalNumberText.length > 2) {
                 twoCharacterLast = ordinalNumberText.substring(ordinalNumberText.length - 2, ordinalNumberText.length);
             }
-            scores += helperModule.validationCell(row, "fourthColumn", null, (utilities.format.numberToText(content) + twoCharacterLast));
-            $('#scoreLbl').html(scores + "/30");
+            scores += helperModule.validation.cell(row, "fourthColumn", null, (utilities.format.numberToText(content) + twoCharacterLast));
         }
+        helperModule.set.scores(scores);
     }
     /* #endregion */
 }

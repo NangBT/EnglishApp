@@ -24,3 +24,7 @@ const VOWELS_CONST = {
     A: "a",
     I: "i"
 }
+const TAIL_S_OR_ES_CONST = {
+    S: "s",
+    ES: "es"
+}

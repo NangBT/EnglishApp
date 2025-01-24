@@ -1,4 +1,4 @@
-var animalTbl = [
+const animalTbl = [
     {
         "name": "Crocodile",
         "meaningVN": "Cá Sấu"
@@ -112,7 +112,7 @@ var animalTbl = [
         "meaningVN": "Cá Chép"
     },
     {
-        "name": "Flies",
+        "name": "Fly",
         "meaningVN": "Con Ruồi"
     },
     {
@@ -129,7 +129,7 @@ var animalTbl = [
     },
     {
         "name": "Dinosaur",
-        "meaningVN": "khủng Long"
+        "meaningVN": "Khủng Long"
     },
     {
         "name": "Goat",
@@ -148,7 +148,7 @@ var animalTbl = [
         "meaningVN": "Thỏ Rừng"
     },
     {
-        "name": "Dear",
+        "name": "Deer",
         "meaningVN": "Con Nai"
     },
     {

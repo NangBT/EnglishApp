@@ -1,4 +1,4 @@
-var utilities = {
+const utilities = {
     random: {
         number() {
             return Math.round(Math.random() * 1000000);
