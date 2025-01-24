@@ -1,8 +1,18 @@
 const dateModule = {
     /* #region  Random Date For Cells Label */
     random: function random() {
-        let rows = helperModule.getRows();
-        let lengthOfRows = helperModule.getLengthOfRows(rows);
+        /* #region  Header Of Table */
+        $('#firstTh').html('Date');
+        $('#secondTh').html('Full Date (Write)');
+        $('#thirdTh').html('Full Date (Read)');
+        $('.fourthColumn').hide();
+
+        helperModule.set.totalScores(2);
+        /* #endregion */
+
+        /* #region  Random value for first column */
+        let rows = helperModule.get.rows();
+        let lengthOfRows = helperModule.get.lengthOfRows(rows);
 
         for (let i = 1; i < lengthOfRows; i++) {
             let row = rows.eq(i);
@@ -13,20 +23,16 @@ const dateModule = {
 
             let hdf = row.find("td.firstColumn .hdf");
             hdf.val(randomValue);
-            helperModule.resetRow(row);
+            helperModule.reset.row(row);
         }
-
-        $('#firstTh').html('Date');
-        $('#secondTh').html('Full Date (Write)');
-        $('#thirdTh').html('Full Date (Read)');
-        $('.fourthColumn').hide();
+        /* #endregion */
     },
     /* #endregion */
 
     /* #region  Validation Date */
     validation() {
-        let rows = helperModule.getRows();
-        let lengthOfRows = helperModule.getLengthOfRows(rows);
+        let rows = helperModule.get.rows();
+        let lengthOfRows = helperModule.get.lengthOfRows(rows);
         let scores = 0;
         for (let i = 1; i < lengthOfRows; i++) {
             let row = rows.eq(i);
@@ -34,10 +40,10 @@ const dateModule = {
             let content = firstColumn.find('.hdf').val();
             let dateValue = moment(content);
 
-            scores += helperModule.validationCell(row, "secondColumn", utilities.format.dateToText, dateValue);
-            scores += helperModule.validationCell(row, "thirdColumn", numberService.convertDateToFullDateForRead, dateValue);
+            scores += helperModule.validation.cell(row, "secondColumn", utilities.format.dateToText, dateValue);
+            scores += helperModule.validation.cell(row, "thirdColumn", numberService.convertDateToFullDateForRead, dateValue);
         }
-        $('#scoreLbl').html(scores + "/20");
+        helperModule.set.scores(scores);
     }
     /* #endregion */
 }

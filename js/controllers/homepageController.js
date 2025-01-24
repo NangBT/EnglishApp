@@ -3,12 +3,13 @@ $(document).ready(function () {
   showItems();
 
   $('#resetBtn').click(function () {
-    var rows = helperModule.getRows();
-    var lengthOfRows = helperModule.getLengthOfRows(rows);
+    var rows = helperModule.get.rows();
+    var lengthOfRows = helperModule.get.lengthOfRows(rows);
     for (var i = 1; i < lengthOfRows; i++) {
       var row = rows.eq(i);
-      helperModule.resetRow(row);
+      helperModule.reset.row(row);
     }
+    helperModule.set.scores(0);
   });
 
   $("#typeSelect").change(function () {

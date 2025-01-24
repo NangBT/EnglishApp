@@ -1,25 +1,25 @@
-var numberService = {
+const numberService = {
   positions: [0, 1000, 1000000, 1000000000],
   convertNumberToText(number) {
-    var threeNumber = 3;
-    var numberText = number.toString(); // ==> 71,698,401
-    var lengthOfNumber = numberText.length; // ==> 9
-    var partial = lengthOfNumber / threeNumber; // ==> (8 / 3) = 2.6
+    let threeNumber = 3;
+    let numberText = number.toString(); // ==> 71,698,401
+    let lengthOfNumber = numberText.length; // ==> 9
+    let partial = lengthOfNumber / threeNumber; // ==> (8 / 3) = 2.6
     if (partial > 1) {
-      var remainder = lengthOfNumber % threeNumber; // ==> (8 % 3) = 2 => Update remainder = 2
+      let remainder = lengthOfNumber % threeNumber; // ==> (8 % 3) = 2 => Update remainder = 2
       if (remainder == 0) { // ==> remainder === 0 => Update remainder = 3
         remainder = threeNumber; // ==> 3
       }
-      var results = "";
-      var positionEndOfPartBefore = 0;
-      var partialRound = Math.ceil(partial); // ==> Math.ceil(2.6) => Update partialRound = 2
+      let results = "";
+      let positionEndOfPartBefore = 0;
+      let partialRound = Math.ceil(partial); // ==> Math.ceil(2.6) => Update partialRound = 2
       for (i = 0; i < partialRound; i++) {
-        var startIndex = positionEndOfPartBefore;
-        var endIndex = threeNumber * i + remainder;
-        var threeDigits = parseInt(numberText.substring(startIndex, endIndex));
+        let startIndex = positionEndOfPartBefore;
+        let endIndex = threeNumber * i + remainder;
+        let threeDigits = parseInt(numberText.substring(startIndex, endIndex));
 
         positionEndOfPartBefore = endIndex;
-        var threeDigitsText = numberService.convertThreeDigitsToText(threeDigits);
+        let threeDigitsText = numberService.convertThreeDigitsToText(threeDigits);
         if (threeDigitsText != "") {
           results += threeDigitsText.trim() + " ";
           if (partialRound - (1 + i) > -1) {
@@ -28,16 +28,16 @@ var numberService = {
         }
       }
       results = results.trim();
+      return results
     } else {
-      results = numberService.convertThreeDigitsToText(number);
+      return results = numberService.convertThreeDigitsToText(number);
     }
-    return results;
   },
 
   convertThreeDigitsToText(number) {
-    var results = "";
+    let results = "";
     if (number >= 100) {
-      var hundredsUnit = Math.floor(number / 100); // ==> 398 / 100 = Math.floor(3.98) => 3
+      let hundredsUnit = Math.floor(number / 100); // ==> 398 / 100 = Math.floor(3.98) => 3
       results = numberRepository.getCardinalTextByNumber(hundredsUnit) + " ";
       results += numberRepository.getCardinalTextByNumber(100) + " ";
       number = number - (hundredsUnit * 100) // ==> 398 - (3 * 100) = 98;
@@ -45,8 +45,8 @@ var numberService = {
     if (number <= 20) {
       results += numberRepository.getCardinalTextByNumber(number);
     } else {
-      var units = number % 10; // ==> 98 % 10 = 8
-      var dozens = (number - units); // ==> (98 - 8) => 90
+      let units = number % 10; // ==> 98 % 10 = 8
+      let dozens = (number - units); // ==> (98 - 8) => 90
       if (dozens > 0) {
         results += numberRepository.getCardinalTextByNumber(dozens);
         if (units > 0) {
@@ -60,22 +60,27 @@ var numberService = {
     return results.trim();
   },
 
-  convertThreeDigitToOrdinalText(number) {
-    var results = "";
-    var twoCharacterLast = number;
+  convertDigitsToOrdinalText(number) {
+    let results = "";
+    let twoDigitLast = number;
     if (number > 20) {
-      twoCharacterLast = parseInt(number.toString().substring(number.toString().length - 2, number.toString().length));
-      number = number - twoCharacterLast;
+      twoDigitLast = parseInt(number.toString().substring(number.toString().length - 2, number.toString().length));
+      number = number - twoDigitLast;
       results = numberService.convertNumberToText(number).trim();
+      let twoCharacterLast = numberRepository.formatOrdinalText(twoDigitLast);
+      if (twoCharacterLast.length > 0) {
+        results += " " + twoCharacterLast;
+      }
     }
-    results += numberRepository.formatOrdinalText(twoCharacterLast);
-    return results;
+    else {
+      results = numberRepository.formatOrdinalText(twoDigitLast);
+    }
+    return results.trimStart().trimEnd();
   },
-
   /* #region  Convert From "Thursday, June 3rd, 1999" To "Thursday, June the Third, One Thousand Nine Hundred Ninety Nine" */
   convertDateToFullDateForRead(dateValue) {
-    var dateReadValid = dateValue.format('dddd, MMMM');
-    dateReadValid += ' the' + numberService.convertThreeDigitToOrdinalText(dateValue.date());
+    let dateReadValid = dateValue.format('dddd, MMMM');
+    dateReadValid += ' the ' + numberService.convertDigitsToOrdinalText(dateValue.date());
     dateReadValid += ", " + numberService.convertNumberToText(dateValue.year());
     return dateReadValid.trim();
   },

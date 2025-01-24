@@ -10,10 +10,7 @@
     <title>- - - English App (Author: Rice Bee)- - -</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="../../assets/styles/cardinalOrdinalNumber.css"
-    />
+    <link rel="stylesheet" href="../../assets/styles/homepage.css" />
     <link
       rel="stylesheet"
       href="../../assets/fonts/font-awesome-4.7.0/css/font-awesome.css"
@@ -42,7 +39,6 @@
 
     <script src="../../js/repositories/animalRepository.js"></script>
     <script src="../../js/repositories/countryNationalityRepository.js"></script>
-
     <script src="../../js/repositories/fruitRepository.js"></script>
     <script src="../../js/repositories/numberRepository.js"></script>
 
@@ -60,8 +56,6 @@
     <script src="../../js/modules/fruitModule.js"></script>
     <script src="../../js/modules/numberModule.js"></script>
     <script src="../../js/modules/timeModule.js"></script>
-
-    <script src="../../js/modules/animalRepository.js"></script>
 
     <script src="../../js/controllers/homepageController.js"></script>
 
@@ -92,8 +86,9 @@
             </button>
           </div>
           <div class="actionRight">
-            <span>Score: </span>
-            <label id="scoreLbl">-</label>
+            <span style="margin-right: 10px">Score: </span>
+            <label id="scoreLbl" class="scoresLbl">-</label>
+            <label id="totalScoreLbl" class="scoresLbl">-</label>
           </div>
           <!-- <input type="checkbox" /> <span class="hideTableCk">Hide Table</span> -->
         </div>

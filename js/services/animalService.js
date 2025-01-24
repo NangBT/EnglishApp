@@ -1,23 +1,23 @@
-var animalService = {
+const animalService = {
     get: {
         answer: {
             name(keyword) {
-                console.log('keyword: ', keyword);
                 return animalRepository.get.name(keyword);
             },
             what(keyword) {
-                var name = animalService.get.answer.name(keyword);
+                let name = animalService.get.answer.name(keyword);
                 return grammarService.get.sentence.what(name);
             },
-            favorite(keyword) {
-                var name = animalService.get.answer.name(keyword);
-                return grammarService.get.sentence.favorite(name, 'animal');
+            favorite(objInfo) {
+                let name = animalService.get.answer.name(objInfo.keyword);
+                let favoriteInfo = { name: name, amount: 1, typeName: 'animal' };
+                return grammarService.get.sentence.favorite(favoriteInfo);
             },
-            howMuch(infoObj) {
-
-                var name = animalService.get.answer.name(infoObj.keyword);
-                return grammarService.get.sentence.howMuch(name, infoObj.amount);
-            },
+            howMuch(objInfo) {
+                let name = animalService.get.answer.name(objInfo.keyword);
+                let howMuchInfo = { name: name, amount: objInfo.amount };
+                return grammarService.get.sentence.howMuch(howMuchInfo);
+            }
         }
     }
 }
