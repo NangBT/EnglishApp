@@ -1,4 +1,4 @@
-var cardinalNumberTbl = [
+const cardinalNumberTbl = [
     {
         "number": 1,
         "cardinal": "One"

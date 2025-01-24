@@ -41,8 +41,7 @@ const numberModule = {
             let numberValue = parseInt(content);
 
             scores += helperModule.validation.cell(row, "secondColumn", numberService.convertNumberToText, numberValue);
-
-            let ordinalNumberText = numberService.convertThreeDigitToOrdinalText(numberValue).trim();
+            let ordinalNumberText = numberService.convertDigitsToOrdinalText(numberValue).trim();
             scores += helperModule.validation.cell(row, "thirdColumn", null, ordinalNumberText);
 
             let twoCharacterLast = "";

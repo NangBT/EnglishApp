@@ -6,7 +6,7 @@ const fruitModule = {
                     { title: 'Meaning' },
                     { title: 'What fruit is it ?' },
                     { title: 'What’s your favorite one ?' },
-                    { title: 'How many is fruit_name ?' }
+                    { title: 'How much are twelve animal_name ?' }
                 ],
                 callBackFunc: utilities.random.numberWithRange,
                 paramsOfFunc: 25,
@@ -26,10 +26,12 @@ const fruitModule = {
                 let content = firstColumn.find('.hdf').val();
 
                 scores += helperModule.validation.cell(row, "secondColumn", fruitService.get.answer.what, content);
-                scores += helperModule.validation.cell(row, "thirdColumn", fruitService.get.answer.favorite, content);
 
-                let infoObj = { keyword: content, amount: 2 };
-                scores += helperModule.validation.cell(row, "fourthColumn", fruitService.get.answer.howMuch, infoObj);
+                let favoriteInfo = { keyword: content, amount: 1 };
+                scores += helperModule.validation.cell(row, "thirdColumn", fruitService.get.answer.favorite, favoriteInfo);
+
+                let howMuchInfo = { keyword: content, amount: 12 };
+                scores += helperModule.validation.cell(row, "fourthColumn", fruitService.get.answer.howMuch, howMuchInfo);
             }
             helperModule.set.scores(scores);
         }

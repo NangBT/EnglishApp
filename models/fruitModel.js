@@ -1,4 +1,4 @@
-var fruitTbl = [
+const fruitTbl = [
     {
         "name": "Apple",
         "meaningVN": "Quả Táo",

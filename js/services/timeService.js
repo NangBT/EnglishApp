@@ -1,4 +1,4 @@
-var timeService = {
+const timeService = {
     get: {
         tellingTime(objInfo) {
             if (objInfo.sessionType === TIMING_CONST.SESSION_TYPE.IN) {
@@ -11,18 +11,18 @@ var timeService = {
                     }
                 }
             }
-            var hoursText = timeService.get.hourText(objInfo.hours, objInfo.minutes, false);
+            let hoursText = timeService.get.hourText(objInfo.hours, objInfo.minutes, false);
 
             /* #region  Minutes */
-            var minutesText = "";
+            let minutesText = "";
             if (0 < objInfo.minutes && objInfo.minutes < 10) {
                 minutesText = "Oh ";
             }
             minutesText += numberService.convertThreeDigitsToText(objInfo.minutes).trim();
             /* #endregion */
 
-            var sessionText = timeService.get.sessionText(objInfo.hours, objInfo.minutes, objInfo.sessionType, false);
-            var result = "It's";
+            let sessionText = timeService.get.sessionText(objInfo.hours, objInfo.minutes, objInfo.sessionType, false);
+            let result = "It's";
             if (hoursText.length > 0) {
                 result += " " + hoursText;
             }
@@ -45,7 +45,7 @@ var timeService = {
             }
             else {
                 /* #region  Minutes */
-                var minutesText = "";
+                let minutesText = "";
                 if (0 <= objInfo.minutes && objInfo.minutes < 30) {
                     if (0 < objInfo.minutes) {
                         if (objInfo.minutes === 15) {
@@ -70,10 +70,10 @@ var timeService = {
                     minutesText += " To"
                 }
                 /* #endregion */
-                var hoursText = timeService.get.hourText(objInfo.hours, objInfo.minutes, true);
-                var sessionText = timeService.get.sessionText(objInfo.hours, objInfo.minutes, objInfo.sessionType, true);
+                let hoursText = timeService.get.hourText(objInfo.hours, objInfo.minutes, true);
+                let sessionText = timeService.get.sessionText(objInfo.hours, objInfo.minutes, objInfo.sessionType, true);
 
-                var result = "It's";
+                let result = "It's";
                 if (minutesText.trim().length > 0) {
                     result += " " + minutesText.trim();
                 }
@@ -88,7 +88,7 @@ var timeService = {
         },
         hourText(hours, minutes, isRound) {
 
-            var hoursText = "";
+            let hoursText = "";
             if (hours === 0 || hours === 12) {
                 if (minutes > 30 && isRound) {
                     hoursText = numberService.convertThreeDigitsToText(1);
@@ -98,7 +98,7 @@ var timeService = {
                 }
             }
             else {
-                var amOrPM = hours;
+                let amOrPM = hours;
                 if (hours > 12) {
                     amOrPM = hours - 12;
                 }

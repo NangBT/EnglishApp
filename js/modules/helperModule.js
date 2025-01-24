@@ -13,8 +13,6 @@ const helperModule = {
             else {
                 return helperModule.get.rows().length;
             }
-            //return 0;
-            //return 2;
         },
         /* #endregion */
     },
@@ -94,7 +92,7 @@ const helperModule = {
             /* #region  Header Of Table */
             $('.firstColumn, .secondColumn, .thirdColumn, .fourthColumn').hide();
             for (let index = 0; index < configInfo.columns.length; index++) {
-                const item = configInfo.columns[index];
+                let item = configInfo.columns[index];
                 let columnId = '';
                 let columnClass = '';
                 if (index === 0) {
