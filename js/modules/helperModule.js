@@ -63,6 +63,7 @@ const helperModule = {
             errorLbl.removeClass('error');
 
             let content = cell.find('.txt').val().toLowerCase().trim();
+            console.log('content.length: ', content.length);
             if (content.length > 0) {
                 let isValueValid = "";
                 if (callBackFunc != null) {
