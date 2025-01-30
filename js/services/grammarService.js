@@ -14,7 +14,7 @@ const grammarService = {
             return grammarService.is.existed(subject, collections);
         },
         sameBothSingularPlural(word) {
-            const collections = ["deer", "sheep", "clownfish", "fish", "series", "species", "cut", "put", "hit", "read", "run", "aircraft", "moose"];
+            const collections = ["deer", "sheep", "clown fish", "fish", "shrimp", "series", "species", "cut", "put", "hit", "read", "run", "aircraft", "moose"];
             return grammarService.is.existed(word, collections);
         }
     },
@@ -156,7 +156,6 @@ const grammarService = {
                 let dollarTailInfo = { subject: "", name: "dollar", amount: info.amount };
                 sentence += grammarService.add.tail(dollarTailInfo);
                 return sentence;
-                //return grammarService.get.articles.byAmount(amountInfo) + " " + grammarService.add.tail(amountTailInfo) + " " + grammarService.add.tail(costTailInfo) + " " + info.amount + " " + grammarService.add.tail(dollarTailInfo);
             },
             howMany(name, amount, sentenceType) {
                 name = name.toLowerCase();

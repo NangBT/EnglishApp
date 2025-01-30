@@ -66,10 +66,12 @@ const numberService = {
     if (number > 20) {
       twoDigitLast = parseInt(number.toString().substring(number.toString().length - 2, number.toString().length));
       number = number - twoDigitLast;
-      results = numberService.convertNumberToText(number).trim();
+      results = numberService.convertNumberToText(number).trimStart().trimEnd();
+      console.log('results: ', results);
       let twoCharacterLast = numberRepository.formatOrdinalText(twoDigitLast);
+      console.log('twoCharacterLast: ', twoCharacterLast);
       if (twoCharacterLast.length > 0) {
-        results += " " + twoCharacterLast;
+        results += twoCharacterLast;
       }
     }
     else {

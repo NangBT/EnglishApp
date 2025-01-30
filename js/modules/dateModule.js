@@ -19,7 +19,7 @@ const dateModule = {
 
             let randomValue = utilities.random.date();
             let lbl = row.find("td.firstColumn .lbl");
-            lbl.html(moment(randomValue).format('d - DD/MM/YYYY'));
+            lbl.html((parseInt(moment(randomValue).format('d')) + 1) + " - " + moment(randomValue).format('DD/MM/YYYY'));
 
             let hdf = row.find("td.firstColumn .hdf");
             hdf.val(randomValue);
