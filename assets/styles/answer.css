@@ -1,22 +1,70 @@
-.box_first {
-  background-color: pink;
-  font-size: 1.765em;
-  font-weight: bold;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 300px;
-  white-space: nowrap;
+* {
+  margin: 0px;
+  padding: 0px;
 }
-.box_second {
-  background-color: lightblue;
-  font-size: 1.765em;
-  font-weight: bold;
-  margin-bottom: 10px;
+body {
+  background: black;
+  color: #ddd;
+  font-family: comsolas;
+}
+.first_box,
+.second_box,
+.third_box {
   margin-top: 10px;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  margin-bottom: 50px;
+  overflow: auto;
+  height: 200px;
+}
+
+.first_box::-webkit-scrollbar {
+  width: 8px;
+}
+.first_box::-webkit-scrollbar-thumb {
+  background-color: tomato;
+}
+.first_box::-webkit-scrollbar-track {
+  background-color: #ddd;
+}
+.first_box::-webkit-scrollbar-thumb,
+.first_box::-webkit-scrollbar-track {
+  border-radius: 50px;
+}
+.first_box::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background-color: teal;
+}
+.second_box::-webkit-scrollbar {
+  width: 8px;
+}
+.second_box::-webkit-scrollbar-thumb,
+.second_box::-webkit-scrollbar-track {
+  border-radius: 45px;
+}
+.second_box::-webkit-scrollbar-track {
+  background-color: black;
+}
+.second_box::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom, #ffa400, #00aefd);
+}
+.second_box::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background: linear-gradient(to top, #ffa400, #00aefd);
+}
+
+.third_box::-webkit-scrollbar {
+  width: 8px;
+}
+.third_box::-webkit-scrollbar-thumb {
+  background: linear-gradient(transparent, #30ff00);
+}
+.third_box::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background: linear-gradient(transparent, #00b3ff);
+}
+.third_box::-webkit-scrollbar-track {
+  background: black;
+}
+.third_box::-webkit-scrollbar-track,
+.third_box::-webkit-scrollbar-thumb {
+  border-radius: 45px;
 }

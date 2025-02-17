@@ -1,8 +1,7 @@
-1. Tạo p with class box_first với nội dung Lorem có độ dài 3 dòng(hình minh họa: https://prnt.sc/4tiWVwzzr6wp => question 1)
-    a. Format CSS nội dung trong class box_first
-        - Chỉ hiển thị nội dung trong kích thước quy định ở 1 dòng.
-        - Nếu vượt quá thì hiển thị dấu...
-2. Tạo p with class box_second với nội dung Lorem có độ dài 3 dòng(hình minh họa: https://prnt.sc/4tiWVwzzr6wp => question 2)
-    a. Format CSS nội dung trong class box_second 
-        - Chỉ hiển thị nội dung trong kích thước quy định ở 2 dòng.
-        - Nếu vượt quá thì hiển thị dấu...
+1. Customer Scrollbar of section with "first_box" 
+    Bình thường thì có màu tomato => https://prnt.sc/uj0rPKp9Ta7C
+    Khi hover lên của scrollbar thì đổi sang màu teal => https://prnt.sc/guFbVz38MwxL
+2. Customer Scrollbar of section with "second_box" =>color:  #ffa400, #00aefd
+3. Customer Scrollbar of section with class "third_box"
+    color: #30ff00, #00b3ff
+Demo: https://prnt.sc/m-IiiIiTgacv
