@@ -1,7 +1,0 @@
-.box {
-  height: 100vh;
-  background-image: url(../images/leaf.png), url(../images/bg.jpg);
-  /* background-repeat: no-repeat; */
-  /* background-repeat: repeat-x; */
-  background-repeat: repeat-y;
-}

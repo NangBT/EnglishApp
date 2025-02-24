@@ -1,5 +1,39 @@
-.box {
-  height: 100vh;
-  background-image: url(../images/leaf.png), url(../images/bg.jpg);
-  background-repeat: repeat-y;
-}
+// - - - Begin Answer 1 - - -
+/* .box {
+  width: 500px;
+  height: 350px;
+  border: 4px solid tomato;
+  background-image: url(../images/cartoon-pngtree-monkey-animal-11362466.png);
+  background-size: contain;
+} */
+// - - - End Answer 1 - - -
+
+// - - - Begin Answer 2 - - -
+/* .box {
+  width: 500px;
+  height: 350px;
+  border: 1px solid tomato;
+  background-image: url(../images/cartoon-pngtree-monkey-animal-11362466.png);
+  background-size: cover;
+} */
+// - - - End Answer 2 - - -
+
+// - - - Begin Answer 3 - - -
+/* .box {
+  width: 500px;
+  height: 350px;
+  border: 1px solid tomato;
+  background-image: url(../images/cartoon-pngtree-monkey-animal-11362466.png);
+  background-size: 100%;
+} */
+// - - - End Answer 3 - - -
+
+// - - - Begin Answer 4 - - -
+/* .box {
+  width: 500px;
+  height: 350px;
+  border: 1px solid tomato;
+  background-image: url(../images/cartoon-pngtree-monkey-animal-11362466.png);
+  background-size: 50% 100%;
+} */
+// - - - End Answer 4 - - -
