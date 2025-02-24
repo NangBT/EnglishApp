@@ -1,7 +1,9 @@
-1. Customer Scrollbar of section with "first_box" 
-    Bình thường thì có màu tomato => https://prnt.sc/uj0rPKp9Ta7C
-    Khi hover lên của scrollbar thì đổi sang màu teal => https://prnt.sc/guFbVz38MwxL
-2. Customer Scrollbar of section with "second_box" =>color:  #ffa400, #00aefd
-3. Customer Scrollbar of section with class "third_box"
-    color: #30ff00, #00b3ff
-Demo: https://prnt.sc/m-IiiIiTgacv
+1. Add 2 background: https://prnt.sc/6fgr2XA5wyOV
+    1 background leaf không lặp lại
+    1 background bg không lặp lại
+2. Add 2 background:  https://prnt.sc/EwznxAZ4iE93
+    1 background leaf lặp lại theo chiều ngang
+    1 background bd không lặp lại
+3. Add 2 background:  https://prnt.sc/U0e9UBbe1eHW
+    1 background leaf lặp lại theo chiều dọc
+    1 background bd không lặp lại
