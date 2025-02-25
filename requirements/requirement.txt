@@ -15,3 +15,30 @@
     - Không bị lập ảnh
 3. Background size tính theo chiều rộng của kích thước ảnh: https://prnt.sc/EEnn_-FfujkQ
 4. Add 1 background như https://prnt.sc/yu849e4JZrh5
+
+5. Add 1 background: https://prnt.sc/zJW1T6Mnd2Qh
+    Width = 500px; Height = 350px;
+    - Canh Bức Ảnh Phía Trên Bên Trái Của Bức Ảnh
+
+6. Add 1 background: https://prnt.sc/N6zIXPWKYHgc
+    Width = 500px; Height = 350px;
+    - Canh Bức Ảnh Phía Trên Bên Ở Giữa Của Bức Ảnh
+
+7. Add 1 background: https://prnt.sc/IUrmbwnmO2SW
+    Width = 500px; Height = 350px;
+    - Canh Bức Ảnh Phía Trên Bên Phải Của Bức Ảnh
+
+8. Add 1 background: Width = 500px; Height = 350px;
+    - Canh Bức Ảnh Phía Dưới Bên Trái Của Bức Ảnh
+9. Add 1 background: Width = 500px; Height = 350px;
+    - Canh Bức Ảnh Phía Dưới Ở Giữa Của Bức Ảnh
+10. Add 1 background: Width = 500px; Height = 350px;
+    - Canh Bức Ảnh Phía Dưới Bên Phải Của Bức Ảnh
+
+11. Add 1 background: Width = 500px; Height = 350px;
+- Canh Bức Ảnh Ở Giữa Trung tâm của bức ảnh
+
+12. Add 1 background: Width = 500px; Height = 350px; https://prnt.sc/oqhbtcLRNOxg
+- Canh bức ảnh ở tọa độ: 60% 10%
+
+
