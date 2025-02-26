@@ -1,1 +1,15 @@
-1. Tạo 3 button như hình: https://prnt.sc/RFQWCB8ytXUs
+- Tạo 1 p tag with content: lorem 20 row
+- Tạo 1 div tag with class name is "box"
+    - Add background with image bg.jpg
+    - Khi cuộn srollbar thì ảnh bên trong div cuộn trong box
+- Tạo 1 div tag => https://prnt.sc/Z9O7P9LSLFUp
+    - with class name is "box-content"
+    - with content: lorem 50 rows;
+    - Thụt đầu dòng text: 50px
+    - Hình ảnh nền không được lặp lại
+    - Chữ canh đều, màu trắng
+    - Format scrollbar content trong div
+        - Bình thường: 180deg,     #4158d0 0%,     #c850c0 46%,     #ffcc70 100%
+        - Khi hover: 45deg, #85ffbd 0%, #fffb7d 100%
+    - Khi cuộn thì chữ và image trong div đều cuộn theo
+- Tạo 1 div tag with content: lorem 10 row

@@ -1,84 +1,49 @@
-// Begin First Button
-
-.first-btn-grad {
-  margin: 10px;
-  padding: 15px 45px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto; // Điều chỉnh kích thước ảnh nền
+.box {
+  width: 300px;
+  height: 300px;
+  background: url(../images/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  margin: 20px;
+  border: 3px double tomato;
+}
+.box-content {
+  width: 500px;
+  height: 300px;
+  background: url(../images/bg.jpg);
+  background-repeat: no-repeat;
+  background-attachment: local;
+  border: 5px dashes teal;
+  background-size: cover;
+  margin: 20px;
   color: white;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
-  display: block;
+  overflow: auto;
+  text-indent: 50px;
+  line-height: 25px;
+  text-align: justify;
+}
+.box-content::-webkit-scrollbar {
+  width: 8px;
+}
+.box-content::-webkit-scrollbar-thumb {
+  background-color: #4158d0;
   background-image: linear-gradient(
-    to right,
-    #314755 0%,
-    #26a0da 51%,
-    #314755 100%
+    180deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
   );
 }
-.first-btn-grad:hover {
-  background-position: right center; // change the direction of the change here(vị trí bắt đầu đặt ảnh nền)
-  color: #fff;
-  text-decoration: none;
+.box-content::-webkit-scrollbar-thumb:hover {
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
   cursor: pointer;
 }
-// End First Button
-
-// Begin Second Button
-.second-btn-grad {
-  margin: 10px;
-  padding: 15px 45px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: white;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
-  display: block;
-  background-image: linear-gradient(
-    to right,
-    #1c92d2 0%,
-    #f2fcfe 51%,
-    #1c92d2 100%
-  );
+.box-content::-webkit-scrollbar-thumb,
+.box-content::-webkit-scrollbar-track {
+  border-radius: 30px;
 }
-
-.second-btn-grad:hover {
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
-  text-decoration: none;
+.box-content::-webkit-scrollbar-track {
+  background-color: black;
 }
-// End Second Button
-// Begin Third Button
-
-.third-btn-grad {
-  margin: 30px;
-  padding: 15px 45px;
-  display: block;
-  color: white;
-  text-transform: uppercase;
-  text-align: center;
-  transition: 0.5s;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
-  background-image: linear-gradient(
-    to right,
-    #e55d87 0%,
-    #5fc3e4 51%,
-    #e55d87 100%
-  );
-  background-size: 200% auto;
-}
-.third-btn-grad:hover {
-  cursor: pointer;
-  background-position: right center;
-  text-decoration: none;
-  color: wheat;
-  font-size: 15px;
-  box-shadow: 0 0 20px #e55d87;
-}
-
-// End Third Button
