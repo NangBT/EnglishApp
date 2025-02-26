@@ -1,86 +1,84 @@
-// - - - Begin Answer 1 - - -
-/* .box {
-  width: 500px;
-  height: 350px;
-  border: 4px solid tomato;
-  background-image: url(../images/cartoon-pngtree-monkey-animal-11362466.png);
-  background-size: contain;
-} */
-// - - - End Answer 1 - - -
+// Begin First Button
 
-// - - - Begin Answer 2 - - -
-/* .box {
-  width: 500px;
-  height: 350px;
-  border: 1px solid tomato;
-  background-image: url(../images/cartoon-pngtree-monkey-animal-11362466.png);
-  background-size: cover;
-} */
-// - - - End Answer 2 - - -
-
-// - - - Begin Answer 3 - - -
-/* .box {
-  width: 500px;
-  height: 350px;
-  border: 1px solid tomato;
-  background-image: url(../images/cartoon-pngtree-monkey-animal-11362466.png);
-  background-size: 100%;
-} */
-// - - - End Answer 3 - - -
-
-// - - - Begin Answer 4 - - -
-/* .box {
-  width: 500px;
-  height: 350px;
-  border: 1px solid tomato;
-  background-image: url(../images/cartoon-pngtree-monkey-animal-11362466.png);
-  background-size: 50% 100%;
-} */
-// - - - End Answer 4 - - -
-
-// - - - Begin Answer 5 - - -
-/*.box {
-  width: 500px;
-  height: 350px;
-  background-image: url(../images/cartoon-pngtree-monkey-animal-11362466.png);
-  border: 1px solid tomato;
-  background-repeat: no-repeat;
-  background-position: top left;
-}*/
-// - - - End Answer 5 - - -
-
-// - - - Begin Answer 6 - - -
-//background-position: top center;
-// - - - End Answer 6 - - -
-
-// - - - Begin Answer 7 - - -
-//background-position: top right;
-// - - - End Answer 7 - - -
-
-// - - - Begin Answer 8 - - -
-//background-position: bottom left;
-// - - - End Answer 8 - - -
-
-// - - - Begin Answer 9 - - -
-//background-position: bottom center;
-// - - - End Answer 9 - - -
-
-// - - - Begin Answer 10 - - -
-//background-position: bottom right;
-// - - - End Answer 10 - - -
-
-// - - - Begin Answer 11 - - -
-//background-position: center;
-// - - - End Answer 11 - - -
-
-// - - - Begin Answer 12 - - -
-/*.box {
-  width: 500px;
-  height: 350px;
-  background-image: url(../images/cartoon-pngtree-monkey-animal-11362466.png);
-  border: 1px solid tomato;
-  background-repeat: no-repeat;
-  background-position: 60% 10%;
+.first-btn-grad {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto; // Điều chỉnh kích thước ảnh nền
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  background-image: linear-gradient(
+    to right,
+    #314755 0%,
+    #26a0da 51%,
+    #314755 100%
+  );
 }
-*/
-// - - - Begin Answer 12 - - -
+.first-btn-grad:hover {
+  background-position: right center; // change the direction of the change here(vị trí bắt đầu đặt ảnh nền)
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+// End First Button
+
+// Begin Second Button
+.second-btn-grad {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  background-image: linear-gradient(
+    to right,
+    #1c92d2 0%,
+    #f2fcfe 51%,
+    #1c92d2 100%
+  );
+}
+
+.second-btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+// End Second Button
+// Begin Third Button
+
+.third-btn-grad {
+  margin: 30px;
+  padding: 15px 45px;
+  display: block;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  transition: 0.5s;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to right,
+    #e55d87 0%,
+    #5fc3e4 51%,
+    #e55d87 100%
+  );
+  background-size: 200% auto;
+}
+.third-btn-grad:hover {
+  cursor: pointer;
+  background-position: right center;
+  text-decoration: none;
+  color: wheat;
+  font-size: 15px;
+  box-shadow: 0 0 20px #e55d87;
+}
+
+// End Third Button
