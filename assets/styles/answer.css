@@ -1,0 +1,84 @@
+// Begin First Button
+
+.first-btn-grad {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto; // Điều chỉnh kích thước ảnh nền
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  background-image: linear-gradient(
+    to right,
+    #314755 0%,
+    #26a0da 51%,
+    #314755 100%
+  );
+}
+.first-btn-grad:hover {
+  background-position: right center; // change the direction of the change here(vị trí bắt đầu đặt ảnh nền)
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+// End First Button
+
+// Begin Second Button
+.second-btn-grad {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  background-image: linear-gradient(
+    to right,
+    #1c92d2 0%,
+    #f2fcfe 51%,
+    #1c92d2 100%
+  );
+}
+
+.second-btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+// End Second Button
+// Begin Third Button
+
+.third-btn-grad {
+  margin: 30px;
+  padding: 15px 45px;
+  display: block;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  transition: 0.5s;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to right,
+    #e55d87 0%,
+    #5fc3e4 51%,
+    #e55d87 100%
+  );
+  background-size: 200% auto;
+}
+.third-btn-grad:hover {
+  cursor: pointer;
+  background-position: right center;
+  text-decoration: none;
+  color: wheat;
+  font-size: 15px;
+  box-shadow: 0 0 20px #e55d87;
+}
+
+// End Third Button
